@@ -1,6 +1,7 @@
 #pragma once
+#include "Graphics/SpriteRenderer2D.h"
 
-namespace qdrm
+namespace dat
 {
 	class SceneHandler;
 

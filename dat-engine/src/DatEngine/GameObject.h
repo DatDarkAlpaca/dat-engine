@@ -3,7 +3,7 @@
 #include "Graphics/Texture.h"
 #include "Graphics/SpriteRenderer2D.h"
 
-namespace qdrm
+namespace dat
 {
 	class GameObject
 	{

@@ -83,12 +83,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src/DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine</IncludePath>
+    <IncludePath>$(ProjectDir)src\DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src/DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine</IncludePath>
+    <IncludePath>$(ProjectDir)src\DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -189,12 +189,14 @@
   <ItemGroup>
     <ClInclude Include="src\DatEngine\Core\Engine.h" />
     <ClInclude Include="src\DatEngine.h" />
+    <ClInclude Include="src\DatEngine\Core\InputHandler.h" />
     <ClInclude Include="src\DatEngine\Core\ResourceManager.h" />
     <ClInclude Include="src\DatEngine\Core\Window.h" />
     <ClInclude Include="src\DatEngine\GameObject.h" />
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\Graphics\SpriteRenderer2D.h" />
     <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
+    <ClInclude Include="src\DatEngine\Scenes\PhysicsScene.h" />
     <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
     <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
     <ClInclude Include="src\DatEngine\Scenes\TestScene.h" />

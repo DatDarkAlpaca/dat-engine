@@ -1,9 +1,10 @@
 #pragma once
 #include "Scene.h"
 #include "GameObject.h"
-#include "ResourceManager.h"
+#include "Core/InputHandler.h"
+#include "Core/ResourceManager.h"
 
-namespace qdrm
+namespace dat
 {
 	class TestScene final : public Scene
 	{

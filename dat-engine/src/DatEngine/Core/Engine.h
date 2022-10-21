@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Window.h"
-#include "Graphics/SpriteRenderer2D.h"
+#include "DatEngine/Graphics/SpriteRenderer2D.h"
 
 namespace dat
 {
