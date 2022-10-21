@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Engine.h"
 
+#include "InputHandler.h"
 #include "ResourceManager.h"
 
 dat::Engine::Engine(int width, int height, const char* title)
@@ -43,7 +44,7 @@ void dat::Engine::initializeGLFW()
 void dat::Engine::initializeResources()
 {
 	// Input:
-	//glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
+	glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
 
 	// Shader:
 	ResourceManager::loadShader(
