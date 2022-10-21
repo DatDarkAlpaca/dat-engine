@@ -18,6 +18,8 @@ dat::Engine::Engine(int width, int height, const char* title)
 	}
 
 	m_MainWindow->setViewport(0, 0, width, height);
+
+	initializeResources();
 }
 
 void dat::Engine::initializeGLFW()
@@ -65,11 +67,8 @@ void dat::Engine::initializeResources()
 	// Textures:
 	ResourceManager::loadTexture("square", "res/textures/square.png", true);
 
-	// Scenes:
-	/*m_SceneHandler = new SceneHandler();
-	m_SceneHandler->addScene("1", std::move(std::make_shared<TestScene>(m_SceneHandler)));
-
-	m_SceneHandler->setScene("1");*/
+	// Scene Handler:
+	m_SceneHandler = std::make_unique<SceneHandler>();
 }
 
 void dat::Engine::run()
@@ -100,7 +99,7 @@ void dat::Engine::processInput(double dt)
 {
 	glfwPollEvents();
 
-	//m_SceneHandler->handleInput(dt);
+	m_SceneHandler->handleInput(dt);
 }
 
 void dat::Engine::render()
@@ -110,14 +109,14 @@ void dat::Engine::render()
 	glClearColor(0.f, 0.f, 0.f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	//m_SceneHandler->render(*m_Renderer);
+	m_SceneHandler->render(*m_SpriteRenderer.get());
 
 	glfwSwapBuffers(window);
 }
 
 void dat::Engine::update(double dt)
 {
-	//m_SceneHandler->update(dt);
+	m_SceneHandler->update(dt);
 }
 
 void dat::Engine::terminate()

@@ -32,6 +32,9 @@ namespace dat
 	public:
 		glm::vec2 position = glm::vec2(0.f), size = glm::vec2(1.f), velocity = glm::vec2(0.f);
 		glm::vec3 color = glm::vec3(1.f);
+		glm::vec2 force = glm::vec3(0.f);
+		float mass = 1.f;
+		
 		float angle = 0.f;
 		bool isSolid = true, isDestroyed = false;
 

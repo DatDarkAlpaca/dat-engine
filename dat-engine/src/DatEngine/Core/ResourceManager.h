@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
-#include "Graphics/Shader.h"
-#include "Graphics/Texture.h"
+#include "DatEngine/Graphics/Shader.h"
+#include "DatEngine/Graphics/Texture.h"
 
 namespace dat
 {

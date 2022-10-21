@@ -196,10 +196,8 @@
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\Graphics\SpriteRenderer2D.h" />
     <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
-    <ClInclude Include="src\DatEngine\Scenes\PhysicsScene.h" />
     <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
     <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
-    <ClInclude Include="src\DatEngine\Scenes\TestScene.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
@@ -227,6 +225,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />
+    <None Include="res\shaders\fragment_shader.glsl" />
+    <None Include="res\shaders\vertex_shader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\square.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

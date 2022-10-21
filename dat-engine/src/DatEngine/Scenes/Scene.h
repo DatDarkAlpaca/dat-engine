@@ -1,5 +1,5 @@
 #pragma once
-#include "Graphics/SpriteRenderer2D.h"
+#include "DatEngine/Graphics/SpriteRenderer2D.h"
 
 namespace dat
 {
