@@ -7,6 +7,12 @@ dat::SpriteRenderer2D::SpriteRenderer2D(const Shader& shader)
 	initialize();
 }
 
+void dat::SpriteRenderer2D::setShader(const Shader& shader)
+{
+	m_Shader = shader;
+	initialize();
+}
+
 void dat::SpriteRenderer2D::drawSprite(const Texture2D& texture, glm::vec2 position, glm::vec2 size, float rotationAngle, glm::vec3 color)
 {
 	if (texture.width <= 0 || texture.height <= 0)

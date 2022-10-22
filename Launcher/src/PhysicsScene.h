@@ -84,7 +84,7 @@ namespace dat
 		std::vector<std::unique_ptr<GameObject>> m_GameObjects;
 
 	private:
-		bool enableGravity = true;
+		bool enableGravity = false;
 		glm::vec2 gravity = glm::vec2(0, -9.871f);
 	};
 }

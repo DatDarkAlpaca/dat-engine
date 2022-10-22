@@ -19,7 +19,7 @@ dat::Engine::Engine(int width, int height, const char* title)
 		DAT_CORE_TRACE("Sucessfully initialized GLEW");
 
 	m_MainWindow->setViewport(0, 0, width, height);
-	initializeResources();
+	initializeSystems();
 }
 
 void dat::Engine::initializeGLFW()
@@ -45,29 +45,13 @@ void dat::Engine::initializeGLFW()
 	DAT_CORE_TRACE("Sucessfully initialized GLFW");
 }
 
-void dat::Engine::initializeResources()
+void dat::Engine::initializeSystems()
 {
 	// Input:
 	glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
 
-	// Shader:
-	ResourceManager::loadShader(
-		"sprite",
-		"res/shaders/vertex_shader.glsl",
-		"res/shaders/fragment_shader.glsl"
-	);
-
-	// Projection Matrix:
-	glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.0f, 1.0f);
-
-	ResourceManager::getShader("sprite").use().setInteger("image", 0);
-	ResourceManager::getShader("sprite").setMatrix4f("projection", projection);
-
 	// Renderer:
-	m_SpriteRenderer = std::make_unique<SpriteRenderer2D>(ResourceManager::getShader("sprite"));
-
-	// Textures:
-	ResourceManager::loadTexture("square", "res/textures/square.png", true);
+	m_SpriteRenderer = std::make_unique<SpriteRenderer2D>();
 
 	// Scene Handler:
 	m_SceneHandler = std::make_unique<SceneHandler>();

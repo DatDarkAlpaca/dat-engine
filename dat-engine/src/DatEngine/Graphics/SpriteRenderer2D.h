@@ -9,6 +9,11 @@ namespace dat
 	public:
 		explicit SpriteRenderer2D(const Shader& shader);
 
+		explicit SpriteRenderer2D() = default;
+
+	public:
+		void setShader(const Shader& shader);
+
 	private:
 		void initialize();
 

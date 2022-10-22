@@ -15,7 +15,7 @@ namespace dat
 	private:
 		static void initializeGLFW();
 
-		void initializeResources();
+		void initializeSystems();
 
 	public:
 		void run();
