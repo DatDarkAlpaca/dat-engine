@@ -20,6 +20,7 @@ void dat::ResourceManager::clear()
 dat::Shader dat::ResourceManager::loadShader(std::string_view shaderName, const char* vertexShaderFile, const char* fragmentShaderFile)
 {
 	m_Shaders[shaderName] = loadShaderFromFile(vertexShaderFile, fragmentShaderFile);
+	DAT_CORE_TRACE("Loaded shader: {}", shaderName.data());
 	return m_Shaders[shaderName];
 }
 
@@ -31,6 +32,7 @@ dat::Shader dat::ResourceManager::getShader(std::string_view shaderName)
 dat::Texture2D dat::ResourceManager::loadTexture(std::string_view textureName, const char* textureFile, bool alpha)
 {
 	m_Textures[textureName] = loadTextureFromFile(textureFile, alpha);
+	DAT_CORE_TRACE("Loaded texture: {}", textureName.data());
 	return m_Textures[textureName];
 }
 
@@ -61,8 +63,7 @@ dat::Shader dat::ResourceManager::loadShaderFromFile(const char* vertexShaderFil
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Error while loading shader files\n";
-		std::cerr << e.what() << '\n';
+		DAT_CORE_ERROR("An error has ocurred while loading shader files: {}", e.what());
 	}
 
 	Shader shader;

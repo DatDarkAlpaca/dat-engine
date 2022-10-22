@@ -16,7 +16,7 @@ namespace dat
 		{
 			if (exists(sceneName))
 			{
-				std::cout << "Failed to insert a scene at " << sceneName << ". Scene already exists.\n";
+				DAT_CORE_WARN("Failed to insert a scene at '{}'. Scene already exists.", sceneName.data());
 				return;
 			}
 

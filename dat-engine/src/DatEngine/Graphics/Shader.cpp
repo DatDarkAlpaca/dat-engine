@@ -13,7 +13,7 @@ namespace
 		if (!success)
 		{
 			glGetShaderInfoLog(object, 512, NULL, infoLog);
-			std::cout << "Shader Error: " << infoLog << std::endl;
+			DAT_CORE_ERROR("Shader Error:\n{}", infoLog);
 		}
 	}
 
@@ -27,10 +27,10 @@ namespace
 		if (!success)
 		{
 			glGetProgramInfoLog(object, 1024, nullptr, infoLog);
-			std::cout << "Program Error: " << infoLog << '\n';
+			DAT_CORE_ERROR("Linking Error:\n{}", infoLog);
 		}
 	}
-}
+
 
 void dat::Shader::compile(const char* vertexSource, const char* fragmentSource)
 {
