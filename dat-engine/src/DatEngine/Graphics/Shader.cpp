@@ -30,7 +30,7 @@ namespace
 			DAT_CORE_ERROR("Linking Error:\n{}", infoLog);
 		}
 	}
-
+}
 
 void dat::Shader::compile(const char* vertexSource, const char* fragmentSource)
 {
