@@ -12,7 +12,7 @@ dat::Window::Window(int width, int height, const char* title)
 	
 	if (!m_Window.get())
 	{
-		std::cerr << "[Error]: Failed to create a GLFW window.\n";
+		DAT_CORE_ERROR("Failed to initialize a GLFW window.");
 		glfwTerminate();
 	}
 

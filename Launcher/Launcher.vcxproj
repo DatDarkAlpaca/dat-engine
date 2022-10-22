@@ -97,7 +97,7 @@
       <PreprocessorDefinitions>GLFW_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine;$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine;$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,7 +115,7 @@
       <PreprocessorDefinitions>GLFW_STATIC;GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine;$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine;$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>GLFW_STATIC;GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +151,7 @@
       <PreprocessorDefinitions>GLFW_STATIC;GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

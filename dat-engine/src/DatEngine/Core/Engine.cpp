@@ -7,18 +7,18 @@
 dat::Engine::Engine(int width, int height, const char* title)
 	: m_Width(width), m_Height(height)
 {
+	initializeLogger();
 	initializeGLFW();
 
 	m_MainWindow = std::make_unique<Window>(width, height, title);
 	m_MainWindow->setContext();
 
 	if (glewInit() != GLEW_OK)
-	{
-		std::cerr << "[Error]: Failed to initialize GLEW.\n";
-	}
+		DAT_CORE_CRITICAL("Failed to initialize GLEW.");
+	else
+		DAT_CORE_TRACE("Sucessfully initialized GLEW");
 
 	m_MainWindow->setViewport(0, 0, width, height);
-
 	initializeResources();
 }
 
@@ -26,7 +26,7 @@ void dat::Engine::initializeGLFW()
 {
 	if (glfwInit() != GLFW_TRUE)
 	{
-		std::cerr << "Failed to initialize GLFW\n";
+		DAT_CORE_CRITICAL("Failed to initialize GLFW.");
 		glfwTerminate();
 	}
 
@@ -41,6 +41,8 @@ void dat::Engine::initializeGLFW()
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	DAT_CORE_TRACE("Sucessfully initialized GLFW");
 }
 
 void dat::Engine::initializeResources()
