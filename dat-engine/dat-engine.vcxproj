@@ -99,7 +99,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x86\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x86\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,7 +122,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x86\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x86\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x64\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x64\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories);$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,7 +170,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x64\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x64\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories);$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -200,6 +200,7 @@
     <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
     <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\DatEngine\Graphics\TextRenderer.h" />
     <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +224,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="src\DatEngine\Graphics\TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />

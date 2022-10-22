@@ -27,10 +27,16 @@
   <ItemGroup>
     <None Include="res\shaders\fragment_shader.glsl" />
     <None Include="res\shaders\vertex_shader.glsl" />
+    <None Include="res\shaders\text_vertex_shader.glsl" />
+    <None Include="res\shaders\text_fragment_shader.glsl" />
+    <None Include="res\fonts\LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\square.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\fonts\ocraext.ttf" />
   </ItemGroup>
 </Project>
