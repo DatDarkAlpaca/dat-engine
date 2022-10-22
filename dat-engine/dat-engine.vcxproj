@@ -200,6 +200,7 @@
     <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
     <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\DatEngine\Graphics\TextRenderer.h" />
     <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +224,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="src\DatEngine\Graphics\TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />
