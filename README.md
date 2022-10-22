@@ -14,14 +14,14 @@ In order to build this project, you'll need to download the following IDE:
 
 ## Downloading
 
-It is fairly easy to download the project, all you need to do is to [clone](https://github.com/DatDarkAlpaca/Degenerate-Bases-NoGUI/) it from
-GitHub. There is also the option to [download](https://github.com/DatDarkAlpaca/Degenerate-Bases-NoGUI/archive/refs/heads/main.zip)
+It is fairly easy to download the project, all you need to do is to [clone](https://github.com/DatDarkAlpaca/dat-engine/) it from
+GitHub. There is also the option to [download](https://github.com/DatDarkAlpaca/dat-engine/archive/refs/heads/main.zip)
 a copy of the repository.
 
 If you want to clone the repository using the terminal instead, use:
 
 ```bash
-git clone https://github.com/DatDarkAlpaca/Degenerate-Bases-NoGUI/
+git clone https://github.com/DatDarkAlpaca/dat-engine/
 ```
 
 ## Building the project
