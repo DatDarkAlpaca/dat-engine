@@ -13,6 +13,13 @@ dat::Engine::Engine(int width, int height, const char* title)
 	m_MainWindow = std::make_unique<Window>(width, height, title);
 	m_MainWindow->setContext();
 
+	FT_Library ft;
+	if (FT_Init_FreeType(&ft))
+	{
+		DAT_CORE_ERROR("Failed to initialize the FreeType library.");
+		return;
+	}
+
 	if (glewInit() != GLEW_OK)
 		DAT_CORE_CRITICAL("Failed to initialize GLEW.");
 	else

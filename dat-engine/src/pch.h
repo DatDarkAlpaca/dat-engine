@@ -17,4 +17,9 @@
 
 #include "spdlog/spdlog.h"
 
+#pragma warning(push, 0)
+#include <ft2build.h>
+#include FT_FREETYPE_H
+#pragma warning(pop)
+
 #include "DatEngine/Core/Logger.h"
