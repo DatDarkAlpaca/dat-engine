@@ -1,6 +1,5 @@
 # Dat Engine
-As the description clearly states, this is a toy engine. It is not meant to be used as a commercial game engine substitute, nor it has 
-- or will ever have - the capacity to do so. 
+As the description clearly states, this is a toy engine. It is not meant to be used as a commercial game engine substitute, nor it has - or will ever have - the capacity to do so. 
 
 # Getting Started
 
