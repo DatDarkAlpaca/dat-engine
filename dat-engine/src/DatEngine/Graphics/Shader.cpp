@@ -12,8 +12,8 @@ namespace
 
 		if (!success)
 		{
-			glGetShaderInfoLog(object, 1024, nullptr, infoLog);
-			std::cerr << "Shader Error: " << infoLog << '\n';
+			glGetShaderInfoLog(object, 512, NULL, infoLog);
+			std::cout << "Shader Error: " << infoLog << std::endl;
 		}
 	}
 

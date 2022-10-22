@@ -1,7 +1,8 @@
 #pragma once
 #include "pch.h"
 #include "Window.h"
-#include "Graphics/SpriteRenderer2D.h"
+#include "DatEngine/Graphics/SpriteRenderer2D.h"
+#include "DatEngine/Scenes/SceneHandler.h"
 
 namespace dat
 {
@@ -9,6 +10,7 @@ namespace dat
 	{
 	public:
 		explicit Engine(int width, int height, const char* title);
+		virtual ~Engine() = default;
 
 	private:
 		static void initializeGLFW();
@@ -27,11 +29,12 @@ namespace dat
 
 		void terminate();
 
-	private:
+	protected:
 		std::unique_ptr<Window> m_MainWindow;
 		std::unique_ptr<SpriteRenderer2D> m_SpriteRenderer;
+		std::unique_ptr<SceneHandler> m_SceneHandler;
 
-	private:
+	protected:
 		int m_Width = 0, m_Height = 0;
 	};
 }
