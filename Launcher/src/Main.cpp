@@ -20,8 +20,8 @@ namespace dat
 			// Sprite Shader:
 			ResourceManager::loadShader(
 				"sprite",
-				"res/shaders/vertex_shader.glsl",
-				"res/shaders/fragment_shader.glsl"
+				"res/shaders/sprite_vertex.glsl",
+				"res/shaders/sprite_fragment.glsl"
 			);
 
 			// Sprite Shader Uniforms:

@@ -25,8 +25,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\fragment_shader.glsl" />
-    <None Include="res\shaders\vertex_shader.glsl" />
+    <None Include="res\shaders\sprite_fragment.glsl" />
+    <None Include="res\shaders\sprite_vertex.glsl" />
     <None Include="res\shaders\text_vertex_shader.glsl" />
     <None Include="res\shaders\text_fragment_shader.glsl" />
     <None Include="res\fonts\LICENSE" />
