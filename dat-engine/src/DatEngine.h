@@ -6,8 +6,7 @@
 #include "DatEngine/Scenes/Scene.h"
 #include "DatEngine/GameObject.h"
 
-#include "DatEngine/Graphics/SpriteRenderer2D.h"
-#include "DatEngine/Graphics/TextRenderer.h"
+#include "DatEngine/Graphics/Renderer/Renderer2D.h"
 
 #include "DatEngine/Core/ResourceManager.h"
 #include "DatEngine/Core/InputHandler.h"

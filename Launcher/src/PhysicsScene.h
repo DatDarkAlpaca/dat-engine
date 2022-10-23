@@ -21,25 +21,21 @@ namespace dat
 			float size = 128 * scale;
 			float offset = 5;
 
-			/*GameObject object1(glm::vec2(0.f, 0.f), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
+			GameObject object1(glm::vec2(0.f, 0.f), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
 			GameObject object2(glm::vec2(0, size + offset), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
 			GameObject object3(glm::vec2(size + offset, 0), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
 			GameObject object4(glm::vec2(size + offset, size + offset), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
 			addObject(object1);
 			addObject(object2);
 			addObject(object3);
-			addObject(object4);*/
+			addObject(object4);
 			
 			for (auto& obj : m_GameObjects)
 				obj->mass = 0.001f;
-
-			m_TextRenderer = new TextRenderer(800, 600);
-			m_TextRenderer->initialize("res/fonts/ocraext.ttf", 28);
 		}
 
 		void onSceneLeave() override
 		{
-			delete m_TextRenderer;
 		}
 
 	public:
@@ -67,11 +63,12 @@ namespace dat
 			}
 		}
 
-		void render(SpriteRenderer2D& renderer) override
+		void render(Renderer2D& renderer) override
 		{
-			/*for (const auto& object : m_GameObjects)
-				object->draw(renderer);*/
-			m_TextRenderer->draw("hello", glm::vec2(5.f, 5.f), 1.f);
+			for (const auto& object : m_GameObjects)
+				object->draw(renderer);
+
+			renderer.drawText("hello", glm::vec2(5.f, 5.f), 1.f);
 		}
 
 	private:
@@ -90,7 +87,6 @@ namespace dat
 
 	private:
 		std::vector<std::unique_ptr<GameObject>> m_GameObjects;
-		TextRenderer *m_TextRenderer = nullptr;
 
 	private:
 		bool enableGravity = false;

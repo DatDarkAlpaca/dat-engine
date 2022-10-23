@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 
-#include "Shader.h"
+#include "DatEngine/Graphics/Shader.h"
 #include "DatEngine/Core/ResourceManager.h"
 
 // Prodly stolen and slightly modified from:
@@ -18,13 +18,17 @@ namespace dat
 	class TextRenderer
 	{
 	public:
-		TextRenderer(size_t width, size_t height)
+		TextRenderer(size_t width, size_t height, std::string_view fontName, size_t fontSize)
 		{
-			m_TextShader = ResourceManager::loadShader(
-				"text_shader", 
-				"res/shaders/text_vertex_shader.glsl", 
-				"res/shaders/text_fragment_shader.glsl"
-			);
+			initializeShader(width, height);
+
+			initializeFont(fontName, fontSize);
+		}
+
+	private:
+		void initializeShader(size_t width, size_t height)
+		{
+			m_TextShader = ResourceManager::getShader("text_shader");
 
 			m_TextShader.use();
 			m_TextShader.setMatrix4f("projection", glm::ortho(0.0f, float(width), float(height), 0.0f));
@@ -45,51 +49,7 @@ namespace dat
 			glBindVertexArray(0);
 		}
 
-	public:
-		void draw(std::string_view text, glm::vec2 position, float scale, glm::vec3 color = glm::vec3(1.0f))
-		{
-			m_TextShader.use();
-			m_TextShader.setVector3f("textColor", color);
-			glActiveTexture(GL_TEXTURE0);
-			glBindVertexArray(m_VAO);
-
-			for (auto it = text.begin(); it != text.end(); ++it)
-			{
-				Character ch = m_Characters[*it];
-
-				float xpos = position.x + ch.bearing.x * scale;
-				float ypos = position.y + (m_Characters['H'].bearing.y - ch.bearing.y) * scale;
-
-				float w = ch.size.x * scale;
-				float h = ch.size.y * scale;
-
-				float vertices[6][4] = {
-					{ xpos,     ypos + h,   0.0f, 1.0f },
-					{ xpos + w, ypos,       1.0f, 0.0f },
-					{ xpos,     ypos,       0.0f, 0.0f },
-
-					{ xpos,     ypos + h,   0.0f, 1.0f },
-					{ xpos + w, ypos + h,   1.0f, 1.0f },
-					{ xpos + w, ypos,       1.0f, 0.0f }
-				};
-
-				glBindTexture(GL_TEXTURE_2D, ch.textureID);
-
-				glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-				glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-				glDrawArrays(GL_TRIANGLES, 0, 6);
-
-				position.x += (ch.advance >> 6) * scale;
-			}
-
-			glBindVertexArray(0);
-			glBindTexture(GL_TEXTURE_2D, 0);
-		}
-
-	public:
-		void initialize(std::string_view fontName, size_t fontSize)
+		void initializeFont(std::string_view fontName, size_t fontSize)
 		{
 			m_Characters.clear();
 
@@ -152,6 +112,49 @@ namespace dat
 
 			FT_Done_Face(face);
 			FT_Done_FreeType(ft);
+		}
+
+	public:
+		void render(std::string_view text, glm::vec2 position, float scale, glm::vec3 color = glm::vec3(1.0f))
+		{
+			m_TextShader.use();
+			m_TextShader.setVector3f("textColor", color);
+			glActiveTexture(GL_TEXTURE0);
+			glBindVertexArray(m_VAO);
+
+			for (auto it = text.begin(); it != text.end(); ++it)
+			{
+				Character ch = m_Characters[*it];
+
+				float xpos = position.x + ch.bearing.x * scale;
+				float ypos = position.y + (m_Characters['H'].bearing.y - ch.bearing.y) * scale;
+
+				float w = ch.size.x * scale;
+				float h = ch.size.y * scale;
+
+				float vertices[6][4] = {
+					{ xpos,     ypos + h,   0.0f, 1.0f },
+					{ xpos + w, ypos,       1.0f, 0.0f },
+					{ xpos,     ypos,       0.0f, 0.0f },
+
+					{ xpos,     ypos + h,   0.0f, 1.0f },
+					{ xpos + w, ypos + h,   1.0f, 1.0f },
+					{ xpos + w, ypos,       1.0f, 0.0f }
+				};
+
+				glBindTexture(GL_TEXTURE_2D, ch.textureID);
+
+				glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+				glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+				glDrawArrays(GL_TRIANGLES, 0, 6);
+
+				position.x += (ch.advance >> 6) * scale;
+			}
+
+			glBindVertexArray(0);
+			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 	
 	private:

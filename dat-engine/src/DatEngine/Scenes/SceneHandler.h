@@ -45,7 +45,7 @@ namespace dat
 				m_CurrentScene->update(dt);
 		}
 
-		void render(SpriteRenderer2D& renderer)
+		void render(Renderer2D& renderer)
 		{
 			if (m_CurrentScene)
 				m_CurrentScene->render(renderer);

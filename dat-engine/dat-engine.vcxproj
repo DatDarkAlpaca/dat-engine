@@ -194,13 +194,15 @@
     <ClInclude Include="src\DatEngine\Core\ResourceManager.h" />
     <ClInclude Include="src\DatEngine\Core\Window.h" />
     <ClInclude Include="src\DatEngine\GameObject.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\LineRenderer.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\Renderer2D.h" />
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
-    <ClInclude Include="src\DatEngine\Graphics\SpriteRenderer2D.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\SpriteRenderer2D.h" />
     <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
     <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
     <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\DatEngine\Graphics\TextRenderer.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\TextRenderer.h" />
     <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +210,7 @@
     <ClCompile Include="src\DatEngine\Core\ResourceManager.cpp" />
     <ClCompile Include="src\DatEngine\Core\Window.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\SpriteRenderer2D.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Renderer\SpriteRenderer2D.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Texture.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -224,7 +226,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="src\DatEngine\Graphics\TextRenderer.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Renderer\TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />

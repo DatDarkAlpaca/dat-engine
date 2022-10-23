@@ -17,14 +17,14 @@ namespace dat
 	private:
 		void initializeResources()
 		{
-			// Shader:
+			// Sprite Shader:
 			ResourceManager::loadShader(
 				"sprite",
 				"res/shaders/vertex_shader.glsl",
 				"res/shaders/fragment_shader.glsl"
 			);
 
-			// Shader Uniforms:
+			// Sprite Shader Uniforms:
 			glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.0f, 1.0f);
 
 			Shader sprite = ResourceManager::getShader("sprite");
@@ -32,8 +32,15 @@ namespace dat
 			sprite.setInteger("image", 0);
 			sprite.setMatrix4f("projection", projection);
 
+			// Text Shader:
+			ResourceManager::loadShader(
+				"text_shader",
+				"res/shaders/text_vertex_shader.glsl",
+				"res/shaders/text_fragment_shader.glsl"
+			);
+
 			// Renderer:
-			m_SpriteRenderer->setShader(sprite);
+			m_Renderer->initialize();
 
 			// Textures:
 			ResourceManager::loadTexture("square", "res/textures/square.png", true);
