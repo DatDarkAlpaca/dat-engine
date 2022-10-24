@@ -30,7 +30,7 @@
     <ClInclude Include="src\DatEngine\Graphics\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\DatEngine\Graphics\SpriteRenderer2D.h">
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\SpriteRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\DatEngine\Graphics\Texture.h">
@@ -57,7 +57,13 @@
     <ClInclude Include="src\DatEngine\Core\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\DatEngine\Graphics\TextRenderer.h">
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\Renderer2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\ShapeRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,7 +80,7 @@
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\DatEngine\Graphics\SpriteRenderer2D.cpp">
+    <ClCompile Include="src\DatEngine\Graphics\Renderer\SpriteRenderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\DatEngine\Graphics\Texture.cpp">
@@ -83,7 +89,7 @@
     <ClCompile Include="src\DatEngine\Core\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\DatEngine\Graphics\TextRenderer.cpp">
+    <ClCompile Include="src\DatEngine\Graphics\Renderer\TextRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

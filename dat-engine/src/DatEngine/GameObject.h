@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Graphics/Texture.h"
-#include "Graphics/SpriteRenderer2D.h"
+#include "Graphics/Renderer/SpriteRenderer2D.h"
 
 namespace dat
 {
@@ -24,7 +24,7 @@ namespace dat
 		}
 
 	public:
-		virtual void draw(SpriteRenderer2D& renderer)
+		virtual void draw(Renderer2D& renderer)
 		{
 			renderer.drawSprite(sprite, position, size, angle, color);
 		}

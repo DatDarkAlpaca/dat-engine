@@ -51,7 +51,7 @@ void dat::Engine::initializeSystems()
 	glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
 
 	// Renderer:
-	m_SpriteRenderer = std::make_unique<SpriteRenderer2D>();
+	m_Renderer = std::make_unique<Renderer2D>();
 
 	// Scene Handler:
 	m_SceneHandler = std::make_unique<SceneHandler>();
@@ -95,7 +95,7 @@ void dat::Engine::render()
 	glClearColor(0.f, 0.f, 0.f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	m_SceneHandler->render(*m_SpriteRenderer.get());
+	m_SceneHandler->render(*m_Renderer.get());
 
 	glfwSwapBuffers(window);
 }
