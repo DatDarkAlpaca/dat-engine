@@ -63,7 +63,7 @@
     <ClInclude Include="src\DatEngine\Graphics\Renderer\Renderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\DatEngine\Graphics\Renderer\LineRenderer.h">
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\ShapeRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

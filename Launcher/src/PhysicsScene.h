@@ -65,10 +65,7 @@ namespace dat
 
 		void render(Renderer2D& renderer) override
 		{
-			for (const auto& object : m_GameObjects)
-				object->draw(renderer);
-
-			renderer.drawText("hello", glm::vec2(5.f, 5.f), 1.f);
+			renderer.drawQuad(glm::vec2(200, 200), glm::vec2(50.f, 100.f));
 		}
 
 	private:

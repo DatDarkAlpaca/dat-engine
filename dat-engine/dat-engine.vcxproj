@@ -194,7 +194,7 @@
     <ClInclude Include="src\DatEngine\Core\ResourceManager.h" />
     <ClInclude Include="src\DatEngine\Core\Window.h" />
     <ClInclude Include="src\DatEngine\GameObject.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Renderer\LineRenderer.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\ShapeRenderer2D.h" />
     <ClInclude Include="src\DatEngine\Graphics\Renderer\Renderer2D.h" />
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\Graphics\Renderer\SpriteRenderer2D.h" />

@@ -17,6 +17,18 @@ namespace dat
 	private:
 		void initializeResources()
 		{
+			glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.0f, 1.0f);
+
+			// Default Shader:
+			ResourceManager::loadShader(
+				"default",
+				"res/shaders/vertex.glsl",
+				"res/shaders/fragment.glsl"
+			);
+
+			Shader defaultShader = ResourceManager::getShader("default").use();
+			defaultShader.setMatrix4f("projection", projection);
+
 			// Sprite Shader:
 			ResourceManager::loadShader(
 				"sprite",
@@ -25,10 +37,7 @@ namespace dat
 			);
 
 			// Sprite Shader Uniforms:
-			glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.0f, 1.0f);
-
-			Shader sprite = ResourceManager::getShader("sprite");
-			sprite.use();
+			Shader sprite = ResourceManager::getShader("sprite").use();
 			sprite.setInteger("image", 0);
 			sprite.setMatrix4f("projection", projection);
 

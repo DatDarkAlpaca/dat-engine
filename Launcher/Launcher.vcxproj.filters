@@ -30,6 +30,8 @@
     <None Include="res\shaders\text_vertex_shader.glsl" />
     <None Include="res\shaders\text_fragment_shader.glsl" />
     <None Include="res\fonts\LICENSE" />
+    <None Include="res\shaders\vertex.glsl" />
+    <None Include="res\shaders\fragment.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\square.png">
