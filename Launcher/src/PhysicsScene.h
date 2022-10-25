@@ -49,6 +49,11 @@ namespace dat
 
 		void update(double dt) override 
 		{
+			angle += dt * 50;
+
+			if (angle >= 360)
+				angle = 0;
+
 			for (const auto& object : m_GameObjects)
 			{
 				if (enableGravity)
@@ -65,7 +70,7 @@ namespace dat
 
 		void render(Renderer2D& renderer) override
 		{
-			renderer.drawQuad(glm::vec2(200, 200), glm::vec2(50.f, 100.f));
+			renderer.drawTriangle(glm::vec2(200, 200), glm::vec2(50.f, 100.f), angle);
 		}
 
 	private:
@@ -88,5 +93,6 @@ namespace dat
 	private:
 		bool enableGravity = false;
 		glm::vec2 gravity = glm::vec2(0, -9.871f);
+		float angle = 0;
 	};
 }
