@@ -8,35 +8,35 @@ void dat::ResourceManager::clear()
 {
 	for (auto it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
 	{
-		glDeleteProgram(it->second.ID);
+		glDeleteProgram(it->second->ID);
 	}
 
 	for (auto it = m_Textures.begin(); it != m_Textures.end(); ++it)
 	{
-		glDeleteTextures(1, &it->second.ID);
+		glDeleteTextures(1, &it->second->ID);
 	}
 }
 
-dat::Shader dat::ResourceManager::loadShader(std::string_view shaderName, const char* vertexShaderFile, const char* fragmentShaderFile)
+std::shared_ptr<dat::Shader> dat::ResourceManager::loadShader(std::string_view shaderName, const char* vertexShaderFile, const char* fragmentShaderFile)
 {
-	m_Shaders[shaderName] = loadShaderFromFile(vertexShaderFile, fragmentShaderFile);
+	m_Shaders[shaderName] = std::make_shared<Shader>(loadShaderFromFile(vertexShaderFile, fragmentShaderFile));
 	DAT_CORE_TRACE("Loaded shader: {}", shaderName.data());
 	return m_Shaders[shaderName];
 }
 
-dat::Shader dat::ResourceManager::getShader(std::string_view shaderName)
+std::shared_ptr<dat::Shader> dat::ResourceManager::getShader(std::string_view shaderName)
 {
 	return m_Shaders[shaderName];
 }
 
-dat::Texture2D dat::ResourceManager::loadTexture(std::string_view textureName, const char* textureFile, bool alpha)
+std::shared_ptr<dat::Texture2D> dat::ResourceManager::loadTexture(std::string_view textureName, const char* textureFile, bool alpha)
 {
-	m_Textures[textureName] = loadTextureFromFile(textureFile, alpha);
+	m_Textures[textureName] = std::make_shared<Texture2D>(loadTextureFromFile(textureFile, alpha));
 	DAT_CORE_TRACE("Loaded texture: {}", textureName.data());
 	return m_Textures[textureName];
 }
 
-dat::Texture2D dat::ResourceManager::getTexture(std::string_view textureName)
+std::shared_ptr<dat::Texture2D> dat::ResourceManager::getTexture(std::string_view textureName)
 {
 	return m_Textures[textureName];
 }

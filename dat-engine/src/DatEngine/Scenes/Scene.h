@@ -1,5 +1,5 @@
 #pragma once
-#include "DatEngine/Graphics/Renderer/Renderer2D.h"
+#include "DatEngine/Graphics/Renderer.h"
 
 namespace dat
 {
@@ -21,7 +21,7 @@ namespace dat
 
 		virtual void update(double dt) { }
 
-		virtual void render(Renderer2D& renderer) { }
+		virtual void render(Renderer& renderer) { }
 
 	public:
 		void setHandler(SceneHandler* handler) { this->handler = handler; }

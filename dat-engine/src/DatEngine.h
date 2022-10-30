@@ -4,9 +4,10 @@
 
 #include "DatEngine/Scenes/SceneHandler.h"
 #include "DatEngine/Scenes/Scene.h"
-#include "DatEngine/GameObject.h"
 
-#include "DatEngine/Graphics/Renderer/Renderer2D.h"
+#include "DatEngine/Graphics/Renderer.h"
+#include "DatEngine/Graphics/Mesh.h"
+#include "DatEngine/Graphics/RenderMesh.h"
 
 #include "DatEngine/Core/ResourceManager.h"
 #include "DatEngine/Core/InputHandler.h"

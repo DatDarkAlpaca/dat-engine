@@ -14,24 +14,21 @@ namespace dat
 	public:
 		void onSceneEnter() override
 		{
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			float vertices[] =
+			{
+				 0.5f,  0.5f,
+				 0.5f, -0.5f,
+				-0.5f, -0.5f,
+				-0.5f,  0.5f,
+			};
 
-			float scale = 0.5;
-			float size = 128 * scale;
-			float offset = 5;
+			int indices[] =
+			{
+				0, 3, 1,
+				1, 3, 2
+			};
 
-			GameObject object1(glm::vec2(0.f, 0.f), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
-			GameObject object2(glm::vec2(0, size + offset), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
-			GameObject object3(glm::vec2(size + offset, 0), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
-			GameObject object4(glm::vec2(size + offset, size + offset), glm::vec2(scale, scale), ResourceManager::getTexture("square"));
-			addObject(object1);
-			addObject(object2);
-			addObject(object3);
-			addObject(object4);
-			
-			for (auto& obj : m_GameObjects)
-				obj->mass = 0.001f;
+			quadMesh = std::make_shared<Mesh>(vertices, 4, indices, 6);
 		}
 
 		void onSceneLeave() override
@@ -41,58 +38,24 @@ namespace dat
 	public:
 		void handleInput(double dt) override
 		{
-			if (InputHandler::isKeyPressed(GLFW_KEY_SPACE))
-			{
-				enableGravity = !enableGravity;
-			}
 		}
 
 		void update(double dt) override 
 		{
-			angle += dt * 50;
-
-			if (angle >= 360)
-				angle = 0;
-
-			for (const auto& object : m_GameObjects)
-			{
-				if (enableGravity)
-				{
-					object->force += object->mass * gravity * -1.f;
-
-					object->velocity += object->force / object->mass;
-					object->position += object->velocity * (float)dt;
-
-					object->force = glm::vec3(0.f);
-				}
-			}
 		}
 
-		void render(Renderer2D& renderer) override
+		void render(Renderer& renderer) override
 		{
-			renderer.drawTriangle(glm::vec2(200, 200), glm::vec2(50.f, 100.f), angle);
+			renderer.setWireframe(true);
+
+			auto shader = ResourceManager::getShader("default");
+			
+			auto command = std::make_unique<RenderMesh>(quadMesh, shader);
+
+			renderer.addCommand(std::move(command));
 		}
 
 	private:
-		int addObject(const GameObject& object)
-		{
-			static int id = 0;
-			m_GameObjects.push_back(std::make_unique<GameObject>(object));
-
-			return id++;
-		}
-
-		void removeObject(int id)
-		{
-
-		}
-
-	private:
-		std::vector<std::unique_ptr<GameObject>> m_GameObjects;
-
-	private:
-		bool enableGravity = false;
-		glm::vec2 gravity = glm::vec2(0, -9.871f);
-		float angle = 0;
+		std::shared_ptr<Mesh> quadMesh;
 	};
 }

@@ -26,8 +26,8 @@ namespace dat
 				"res/shaders/fragment.glsl"
 			);
 
-			Shader defaultShader = ResourceManager::getShader("default").use();
-			defaultShader.setMatrix4f("projection", projection);
+			Shader defaultShader = ResourceManager::getShader("default")->use();
+			//defaultShader.setMatrix4f("projection", projection);
 
 			// Sprite Shader:
 			ResourceManager::loadShader(
@@ -37,7 +37,7 @@ namespace dat
 			);
 
 			// Sprite Shader Uniforms:
-			Shader sprite = ResourceManager::getShader("sprite").use();
+			Shader sprite = ResourceManager::getShader("sprite")->use();
 			sprite.setInteger("image", 0);
 			sprite.setMatrix4f("projection", projection);
 
@@ -47,9 +47,6 @@ namespace dat
 				"res/shaders/text_vertex_shader.glsl",
 				"res/shaders/text_fragment_shader.glsl"
 			);
-
-			// Renderer:
-			m_Renderer->initialize();
 
 			// Textures:
 			ResourceManager::loadTexture("square", "res/textures/square.png", true);

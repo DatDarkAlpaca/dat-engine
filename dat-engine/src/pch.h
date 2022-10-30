@@ -10,6 +10,7 @@
 #include <sstream>
 #include <memory>
 #include <string>
+#include <deque>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>

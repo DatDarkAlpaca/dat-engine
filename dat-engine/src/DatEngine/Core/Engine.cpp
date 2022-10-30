@@ -51,7 +51,8 @@ void dat::Engine::initializeSystems()
 	glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
 
 	// Renderer:
-	m_Renderer = std::make_unique<Renderer2D>();
+	m_Renderer = std::make_unique<Renderer>();
+	m_Renderer->initialize();
 
 	// Scene Handler:
 	m_SceneHandler = std::make_unique<SceneHandler>();
@@ -92,10 +93,12 @@ void dat::Engine::render()
 {
 	auto window = m_MainWindow.get()->window();
 
-	glClearColor(0.f, 0.f, 0.f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	m_Renderer->setColor(glm::vec4(0.3, 0.3, 0.4, 1.0));
+	m_Renderer->clear();
 
 	m_SceneHandler->render(*m_Renderer.get());
+
+	m_Renderer->executeCommands();
 
 	glfwSwapBuffers(window);
 }
@@ -107,5 +110,6 @@ void dat::Engine::update(double dt)
 
 void dat::Engine::terminate()
 {
+	m_Renderer->shutdown();
 	m_MainWindow->close();
 }

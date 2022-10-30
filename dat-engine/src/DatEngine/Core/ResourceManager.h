@@ -11,13 +11,13 @@ namespace dat
 		static void clear();
 
 	public:
-		static Shader loadShader(std::string_view shaderName, const char* vertexShaderFile, const char* fragmentShaderFile);
+		static std::shared_ptr<Shader> loadShader(std::string_view shaderName, const char* vertexShaderFile, const char* fragmentShaderFile);
 
-		static Shader getShader(std::string_view shaderName);
+		static std::shared_ptr<Shader> getShader(std::string_view shaderName);
 
-		static Texture2D loadTexture(std::string_view textureName, const char* textureFile, bool alpha);
+		static std::shared_ptr<Texture2D> loadTexture(std::string_view textureName, const char* textureFile, bool alpha);
 
-		static Texture2D getTexture(std::string_view textureName);
+		static std::shared_ptr<Texture2D> getTexture(std::string_view textureName);
 
 	private:
 		static Shader loadShaderFromFile(const char* vertexShaderFile, const char* fragmentShaderFile);
@@ -25,7 +25,7 @@ namespace dat
 		static Texture2D loadTextureFromFile(const char* textureFile, bool alpha);
 
 	private:
-		static inline std::unordered_map<std::string_view, Shader> m_Shaders = {};
-		static inline std::unordered_map<std::string_view, Texture2D> m_Textures = {};
+		static inline std::unordered_map<std::string_view, std::shared_ptr<Shader>> m_Shaders = {};
+		static inline std::unordered_map<std::string_view, std::shared_ptr<Texture2D>> m_Textures = {};
 	};
 }

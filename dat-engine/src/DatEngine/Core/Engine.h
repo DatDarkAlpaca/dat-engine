@@ -2,8 +2,7 @@
 #include "pch.h"
 #include "Window.h"
 
-#include "DatEngine/Graphics/Renderer/SpriteRenderer2D.h"
-#include "DatEngine/Graphics/Renderer/TextRenderer.h"
+#include "DatEngine/Graphics/Renderer.h"
 #include "DatEngine/Scenes/SceneHandler.h"
 
 namespace dat
@@ -33,7 +32,7 @@ namespace dat
 
 	protected:
 		std::unique_ptr<Window> m_MainWindow;
-		std::unique_ptr<Renderer2D> m_Renderer;
+		std::unique_ptr<Renderer> m_Renderer;
 		std::unique_ptr<SceneHandler> m_SceneHandler;
 
 	protected:
