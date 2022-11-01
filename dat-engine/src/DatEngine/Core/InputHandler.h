@@ -22,7 +22,7 @@ namespace dat
 
 		static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 		{
-			m_Scroll = yoffset;
+			m_Scroll = -yoffset;
 		}
 
 	public:
