@@ -20,13 +20,24 @@ namespace dat
 			}
 		}
 
+		static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+		{
+			m_Scroll = yoffset;
+		}
+
 	public:
 		static bool isKeyPressed(GLuint key)
 		{
 			return m_Keys[key];
 		}
 
-	public:
+		static double scrollOffset()
+		{
+			return m_Scroll;
+		}
+
+	private:
 		static inline bool m_Keys[1024] = {};
+		static inline double m_Scroll = 0.0;
 	};
 }
