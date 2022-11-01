@@ -168,9 +168,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Client.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Client.h" />
     <ClInclude Include="src\PhysicsScene.h" />
   </ItemGroup>
   <ItemGroup>
