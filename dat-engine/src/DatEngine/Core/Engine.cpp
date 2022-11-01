@@ -49,6 +49,7 @@ void dat::Engine::initializeSystems()
 {
 	// Input:
 	glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
+	glfwSetScrollCallback(m_MainWindow.get()->window(), InputHandler::scrollCallback);
 
 	// Renderer:
 	m_Renderer = std::make_unique<Renderer>();

@@ -12,4 +12,6 @@
 #include "DatEngine/Core/ResourceManager.h"
 #include "DatEngine/Core/InputHandler.h"
 
+#include "DatEngine/Graphics/Camera.h"
+
 #include "DatEngine/Core/Logger.h"
