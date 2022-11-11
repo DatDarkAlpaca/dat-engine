@@ -193,15 +193,11 @@
     <ClInclude Include="src\DatEngine\Core\Logger.h" />
     <ClInclude Include="src\DatEngine\Core\ResourceManager.h" />
     <ClInclude Include="src\DatEngine\Core\Window.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Camera.h" />
-    <ClInclude Include="src\DatEngine\Graphics\IRenderCommand.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Mesh.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Renderer.h" />
-    <ClInclude Include="src\DatEngine\Graphics\RenderMesh.h" />
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
     <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
     <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
+    <ClInclude Include="src\DatEngine\System\Renderer.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
@@ -209,7 +205,6 @@
     <ClCompile Include="src\DatEngine\Core\Engine.cpp" />
     <ClCompile Include="src\DatEngine\Core\ResourceManager.cpp" />
     <ClCompile Include="src\DatEngine\Core\Window.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Mesh.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Texture.cpp" />
     <ClCompile Include="src\pch.cpp">

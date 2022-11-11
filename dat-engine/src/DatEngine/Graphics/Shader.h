@@ -21,7 +21,7 @@ namespace dat
 		void setMatrix4f(const char* name, glm::mat4 matrix);
 
 	public:
-		Shader& use();
+		Shader& bind();
 
 	public:
 		unsigned int ID = 0;

@@ -1,5 +1,5 @@
 #pragma once
-#include "DatEngine/Graphics/Renderer.h"
+#include "DatEngine/System/Renderer.h"
 
 namespace dat
 {

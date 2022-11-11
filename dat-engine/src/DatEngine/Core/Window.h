@@ -20,6 +20,9 @@ namespace dat
 	public:
 		Window(int width, int height, const char* title);
 
+	private:
+		void initializeGLFW();
+
 	public:
 		void setContext() const;
 

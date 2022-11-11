@@ -87,7 +87,7 @@ void dat::Shader::setMatrix4f(const char* name, glm::mat4 matrix)
 	glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, false, glm::value_ptr(matrix));
 }
 
-dat::Shader& dat::Shader::use()
+dat::Shader& dat::Shader::bind()
 {
 	glUseProgram(ID);
 	return *this;

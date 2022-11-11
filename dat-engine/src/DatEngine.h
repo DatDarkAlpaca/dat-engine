@@ -5,13 +5,7 @@
 #include "DatEngine/Scenes/SceneHandler.h"
 #include "DatEngine/Scenes/Scene.h"
 
-#include "DatEngine/Graphics/Renderer.h"
-#include "DatEngine/Graphics/Mesh.h"
-#include "DatEngine/Graphics/RenderMesh.h"
-
 #include "DatEngine/Core/ResourceManager.h"
 #include "DatEngine/Core/InputHandler.h"
-
-#include "DatEngine/Graphics/Camera.h"
 
 #include "DatEngine/Core/Logger.h"

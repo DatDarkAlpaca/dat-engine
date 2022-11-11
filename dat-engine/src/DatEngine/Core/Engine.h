@@ -1,8 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Window.h"
-
-#include "DatEngine/Graphics/Renderer.h"
+#include "DatEngine/System/Renderer.h"
 #include "DatEngine/Scenes/SceneHandler.h"
 
 namespace dat
@@ -14,8 +13,6 @@ namespace dat
 		virtual ~Engine() = default;
 
 	private:
-		static void initializeGLFW();
-
 		void initializeSystems();
 
 	public:
@@ -31,8 +28,8 @@ namespace dat
 		void terminate();
 
 	protected:
-		std::unique_ptr<Window> m_MainWindow;
 		std::unique_ptr<Renderer> m_Renderer;
+		std::unique_ptr<Window> m_MainWindow;
 		std::unique_ptr<SceneHandler> m_SceneHandler;
 
 	protected:
