@@ -13,6 +13,7 @@ namespace dat
 	public:
 		void onSceneEnter() override
 		{
+			DAT_CORE_TRACE("hello");
 		}
 
 		void onSceneLeave() override

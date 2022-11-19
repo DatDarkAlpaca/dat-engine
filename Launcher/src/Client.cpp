@@ -15,4 +15,6 @@ void dat::Client::initializeResources()
 
 void dat::Client::initializeScenes()
 {
+	sceneHandler->addScene("physics", std::make_unique<PhysicsScene>(sceneHandler.get()));
+	sceneHandler->setScene("physics");
 }

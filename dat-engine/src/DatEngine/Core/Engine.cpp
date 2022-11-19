@@ -9,8 +9,8 @@ dat::Engine::Engine(int width, int height, const char* title)
 {
 	initializeLogger();
 
-	m_MainWindow = std::make_unique<Window>(width, height, title);
-	m_MainWindow->setContext();
+	mainWindow = std::make_unique<Window>(width, height, title);
+	mainWindow->setContext();
 
 	initializeSystems();
 }
@@ -18,20 +18,20 @@ dat::Engine::Engine(int width, int height, const char* title)
 void dat::Engine::initializeSystems()
 {
 	// Input:
-	glfwSetKeyCallback(m_MainWindow.get()->window(), InputHandler::inputKeyCallback);
-	glfwSetScrollCallback(m_MainWindow.get()->window(), InputHandler::scrollCallback);
+	glfwSetKeyCallback(mainWindow.get()->window(), InputHandler::inputKeyCallback);
+	glfwSetScrollCallback(mainWindow.get()->window(), InputHandler::scrollCallback);
 
 	// Renderer:
-	m_Renderer = std::make_unique<Renderer>();
-	m_Renderer->initialize(m_MainWindow, m_Width, m_Height);
+	renderer = std::make_unique<Renderer>();
+	renderer->initialize(mainWindow, m_Width, m_Height);
 
 	// Scene Handler:
-	m_SceneHandler = std::make_unique<SceneHandler>();
+	sceneHandler = std::make_unique<SceneHandler>();
 }
 
 void dat::Engine::run()
 {
-	auto window = m_MainWindow.get()->window();
+	auto window = mainWindow.get()->window();
 
 	double deltaTime = 0., lastFrame = 0.;
 	while (!glfwWindowShouldClose(window))
@@ -57,25 +57,25 @@ void dat::Engine::processInput(double dt)
 {
 	glfwPollEvents();
 
-	m_SceneHandler->handleInput(dt);
+	sceneHandler->handleInput(dt);
 }
 
 void dat::Engine::render()
 {
-	auto window = m_MainWindow.get()->window();
+	auto window = mainWindow.get()->window();
 
-	m_SceneHandler->render(*m_Renderer.get());
+	sceneHandler->render(*renderer.get());
 
 	glfwSwapBuffers(window);
 }
 
 void dat::Engine::update(double dt)
 {
-	m_SceneHandler->update(dt);
+	sceneHandler->update(dt);
 }
 
 void dat::Engine::terminate()
 {
-	m_Renderer->shutdown();
-	m_MainWindow->close();
+	renderer->shutdown();
+	mainWindow->close();
 }

@@ -28,9 +28,9 @@ namespace dat
 		void terminate();
 
 	protected:
-		std::unique_ptr<Renderer> m_Renderer;
-		std::unique_ptr<Window> m_MainWindow;
-		std::unique_ptr<SceneHandler> m_SceneHandler;
+		std::unique_ptr<Renderer> renderer;
+		std::unique_ptr<Window> mainWindow;
+		std::unique_ptr<SceneHandler> sceneHandler;
 
 	protected:
 		int m_Width = 0, m_Height = 0;
