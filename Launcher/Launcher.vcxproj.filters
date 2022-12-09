@@ -18,33 +18,21 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Client.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\PhysicsScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Client.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\shaders\sprite_fragment.glsl" />
-    <None Include="res\shaders\sprite_vertex.glsl" />
-    <None Include="res\shaders\text_vertex_shader.glsl" />
-    <None Include="res\shaders\text_fragment_shader.glsl" />
     <None Include="res\fonts\LICENSE" />
     <None Include="res\shaders\vertex.glsl" />
     <None Include="res\shaders\fragment.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="res\fonts\ocraext.ttf" />
+  </ItemGroup>
+  <ItemGroup>
     <Image Include="res\textures\square.png">
       <Filter>Resource Files</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="res\fonts\ocraext.ttf" />
+    <Image Include="res\textures\image.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

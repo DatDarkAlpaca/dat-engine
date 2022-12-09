@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 
-namespace dat 
+namespace dat::core 
 {
 	inline void initializeLogger()
 	{

@@ -73,12 +73,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine;$(ProjectDir)src/DatEngine</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine;$(ProjectDir)src/DatEngine</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
@@ -94,7 +94,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;GLFW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -117,7 +117,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;GLFW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -140,7 +140,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;GLFW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -165,7 +165,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;GLFW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -187,32 +187,32 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\DatEngine\Core\Engine.h" />
-    <ClInclude Include="src\DatEngine.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Buffers\Buffer.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Buffers\IndexBuffer.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Buffers\VertexArray.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\ImmediateRenderer2D.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\IRenderCommand.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Renderer\IRenderer.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
+    <ClInclude Include="src\DatEngine\Utils\FileReader.h" />
     <ClInclude Include="src\DatEngine\Core\InputHandler.h" />
     <ClInclude Include="src\DatEngine\Core\Logger.h" />
-    <ClInclude Include="src\DatEngine\Core\ResourceManager.h" />
     <ClInclude Include="src\DatEngine\Core\Window.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Camera.h" />
-    <ClInclude Include="src\DatEngine\Graphics\IRenderCommand.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Mesh.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Renderer.h" />
-    <ClInclude Include="src\DatEngine\Graphics\RenderMesh.h" />
+    <ClInclude Include="src\DatEngine\DatEngine.h" />
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
-    <ClInclude Include="src\DatEngine\Scenes\Scene.h" />
-    <ClInclude Include="src\DatEngine\Scenes\SceneHandler.h" />
-    <ClInclude Include="src\pch.h" />
-    <ClInclude Include="vendor\stb_image.h" />
+    <ClInclude Include="src\DatEngine\pch.h" />
+    <ClInclude Include="src\DatEngine\Utils\Timer.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\DatEngine\Core\Engine.cpp" />
-    <ClCompile Include="src\DatEngine\Core\ResourceManager.cpp" />
     <ClCompile Include="src\DatEngine\Core\Window.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Mesh.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Buffers\Buffer.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Renderer\ImmediateRenderer2D.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Texture.cpp" />
-    <ClCompile Include="src\pch.cpp">
+    <ClCompile Include="src\DatEngine\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeaderFile>
@@ -226,6 +226,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />
