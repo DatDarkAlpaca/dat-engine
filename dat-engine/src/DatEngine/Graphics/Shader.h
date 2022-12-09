@@ -1,11 +1,23 @@
 #pragma once
 
-namespace dat
+namespace dat::graphics 
 {
 	class Shader
 	{
 	public:
-		void compile(const char* vertexSource, const char* fragmentSource);
+		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
+		Shader() = default;
+		~Shader();
+
+	private:
+		unsigned int initializeProgram();
+
+	public:
+		Shader& bind();
+
+		void unbind() const;
+
+		void deleteProgram() const;
 
 	public:
 		void setFloat(const char* name, float value);
@@ -20,10 +32,9 @@ namespace dat
 
 		void setMatrix4f(const char* name, glm::mat4 matrix);
 
-	public:
-		Shader& bind();
+	private:
+		unsigned int m_ID = 0;
 
-	public:
-		unsigned int ID = 0;
+		const char* m_VertexShaderPath, *m_FragmentShaderPath;
 	};
 }

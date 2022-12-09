@@ -1,23 +1,35 @@
 #pragma once
-#include "pch.h"
+#include "stb_image/stb_image.h"
 
-namespace dat
+namespace dat::graphics
 {
-	class Texture2D
+	class Texture
 	{
 	public:
-		Texture2D();
+		Texture(const std::string& filepath);
+		~Texture();
+
+	private:
+		void loadImage();
+
+		void cleanupImage();
 
 	public:
-		void generate(unsigned int width, unsigned int height, unsigned char* data);
+		void bind(unsigned int slot = 0) const;
 
-		void bind() const;
+		void unbind() const { glBindTexture(GL_TEXTURE_2D, 0); }
 
 	public:
-		unsigned int ID = 0;
-		unsigned int width = 0, height = 0;
+		inline int getWidth() const { return m_Width; }
 
-		unsigned int internalFormat = GL_RGB, imageFormat = GL_RGB;
-		unsigned int wrapS = GL_REPEAT, wrapT = GL_REPEAT, filterMin = GL_NEAREST, filterMax = GL_NEAREST;
+		inline int getHeight() const { return m_Height; }
+
+	private:
+		unsigned char* m_Buffer = nullptr;
+		std::string m_Filepath;
+		unsigned int m_ID;
+
+	private:
+		int m_Width = 0, m_Height = 0, m_Channels = 0;
 	};
 }

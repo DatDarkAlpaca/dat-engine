@@ -83,18 +83,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src;$(ProjectDir)src/DatEngine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(SolutionDir)dat-engine/src/DatEngine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src;$(ProjectDir)src/DatEngine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(SolutionDir)dat-engine/src/DatEngine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>FREETYPE_STATIC;GLFW_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)dat-engine;$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
@@ -102,7 +102,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype.lib;opengl32.lib;glfw3.lib;glew32s.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\lib;$(SolutionDir)dat-engine\vendor\glew-2.1.0\lib-x86;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\lib\x86</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -112,7 +112,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>FREETYPE_STATIC;GLFW_STATIC;GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_STATIC;GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)dat-engine;$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
@@ -122,7 +122,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype.lib;opengl32.lib;glfw3.lib;glew32s.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x86\lib;$(SolutionDir)dat-engine\vendor\glew-2.1.0\lib-x86;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\lib\x86</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -130,15 +130,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>FREETYPE_STATIC;GLFW_STATIC;GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_STATIC;GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype.lib;opengl32.lib;glfw3.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\lib;$(SolutionDir)dat-engine\vendor\glew-2.1.0\lib-x64;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -148,17 +148,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>FREETYPE_STATIC;GLFW_STATIC;GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_STATIC;GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src;$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\include;$(SolutionDir)dat-engine\vendor\glew-2.1.0\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype.lib;opengl32.lib;glfw3.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dat-engine\vendor\glfw-3.3.8-x64\lib;$(SolutionDir)dat-engine\vendor\glew-2.1.0\lib-x64;$(SolutionDir)dat-engine\vendor\freetype-2.12.1\lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -168,27 +168,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Client.cpp" />
     <ClCompile Include="src\Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Client.h" />
-    <ClInclude Include="src\PhysicsScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\fonts\LICENSE" />
     <None Include="res\shaders\fragment.glsl" />
-    <None Include="res\shaders\sprite_fragment.glsl" />
-    <None Include="res\shaders\text_fragment_shader.glsl" />
-    <None Include="res\shaders\text_vertex_shader.glsl" />
-    <None Include="res\shaders\sprite_vertex.glsl" />
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\textures\square.png" />
+    <Font Include="res\fonts\ocraext.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="res\fonts\ocraext.ttf" />
+    <Image Include="res\textures\image.png" />
+    <Image Include="res\textures\square.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

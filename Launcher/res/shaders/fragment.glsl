@@ -1,10 +1,14 @@
 #version 330
+
+in vec4 o_color;
+in vec2 o_tex_coords;
+
 out vec4 color;
 
-//uniform vec3 objColor;
+uniform sampler2D u_texture;
 
 void main()
 {
-	color = vec4(1.0, 1.0, 1.0, 1.0);
-	//color = vec4(objColor, 1.0);
+	vec4 tex_color = texture(u_texture, o_tex_coords);
+	color = tex_color;
 }

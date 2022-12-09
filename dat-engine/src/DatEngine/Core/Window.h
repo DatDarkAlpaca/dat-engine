@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 
-namespace dat
+namespace dat::core 
 {
 	struct GLFWWindowDeleter
 	{
@@ -10,8 +10,6 @@ namespace dat
 			glfwDestroyWindow(windowPtr);
 		}
 	};
-
-	void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 
 	class Window
 	{
@@ -23,10 +21,20 @@ namespace dat
 	private:
 		void initializeGLFW();
 
+		void initializeGLEW();
+
+		void createWindow(int width, int height, const char* title);
+
+	public:
+		void update() const;
+
 	public:
 		void setContext() const;
 
 		void setViewport(GLint x, GLint y, GLsizei width, GLsizei height) const;
+
+	public:
+		inline bool isClosed() const { return glfwWindowShouldClose(window()); }
 
 		void close();
 
