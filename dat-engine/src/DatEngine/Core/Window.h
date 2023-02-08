@@ -26,7 +26,9 @@ namespace dat::core
 		void createWindow(int width, int height, const char* title);
 
 	public:
-		void update() const;
+		void pollEvents() const;
+
+		void swapBuffers() const;
 
 	public:
 		void setContext() const;

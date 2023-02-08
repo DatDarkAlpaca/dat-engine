@@ -27,26 +27,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -94,22 +94,26 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DAT_EXPORT;_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x86\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vendor\glew\lib-x86;$(ProjectDir)vendor\glfw-x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /y /d  "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-engine\*.dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-launcher\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -117,40 +121,45 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DAT_EXPORT;_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x86\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vendor\glew\lib-x86;$(ProjectDir)vendor\glfw-x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /y /d  "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-engine\*.dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-launcher\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DAT_EXPORT;_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x64\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories);$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vendor\glew\lib-x64;$(ProjectDir)vendor\glfw-x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>
@@ -158,6 +167,9 @@
       <AdditionalDependencies>
       </AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /y /d  "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-engine\*.dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-launcher\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -165,19 +177,20 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DAT_EXPORT;_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-3.3.8-x64\include;$(ProjectDir)vendor\glew-2.1.0\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories);$(ProjectDir)vendor\freetype-2.12.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vendor\glew\lib-x64;$(ProjectDir)vendor\glfw-x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>
@@ -185,15 +198,14 @@
       <AdditionalDependencies>
       </AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /y /d  "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-engine\*.dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\dat-launcher\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\DatEngine\Graphics\Buffers\Buffer.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Buffers\IndexBuffer.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Buffers\VertexArray.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Renderer\ImmediateRenderer2D.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Renderer\IRenderCommand.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Renderer\IRenderer.h" />
-    <ClInclude Include="src\DatEngine\Graphics\Texture.h" />
+    <ClInclude Include="src\DatEngine\API.h" />
+    <ClInclude Include="src\DatEngine\Core\ApplicationStatus.h" />
+    <ClInclude Include="src\DatEngine\Core\DatApplication.h" />
     <ClInclude Include="src\DatEngine\Utils\FileReader.h" />
     <ClInclude Include="src\DatEngine\Core\InputHandler.h" />
     <ClInclude Include="src\DatEngine\Core\Logger.h" />
@@ -205,13 +217,10 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\DatEngine\Core\DatApplication.cpp" />
+    <ClCompile Include="src\DatEngine\Core\InputHandler.cpp" />
     <ClCompile Include="src\DatEngine\Core\Window.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Buffers\Buffer.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Buffers\IndexBuffer.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Buffers\VertexArray.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Renderer\ImmediateRenderer2D.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp" />
-    <ClCompile Include="src\DatEngine\Graphics\Texture.cpp" />
     <ClCompile Include="src\DatEngine\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -226,7 +235,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />

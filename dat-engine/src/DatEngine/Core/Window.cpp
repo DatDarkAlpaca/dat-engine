@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "Window.h"
-#include "Logger.h"
+#include "Utils/Logger.h"
 #include "InputHandler.h"
+#include "ApplicationStatus.h"
 
 // Callbacks:
 static void GLFWErrorCallback(int errorCode, const char* description)
@@ -30,6 +31,9 @@ namespace dat::core
 
 	void Window::initializeGLFW()
 	{
+		if (applicationStatus.isGLFWInitialized)
+			return;
+
 		if (glfwInit() != GLFW_TRUE)
 		{
 			DAT_CORE_CRITICAL("Failed to initialize GLFW.");
@@ -37,6 +41,8 @@ namespace dat::core
 		}
 
 		glfwSetErrorCallback(GLFWErrorCallback);
+
+		applicationStatus.isGLFWInitialized = true;
 	}
 
 	void Window::createWindow(int width, int height, const char* title)
@@ -60,16 +66,25 @@ namespace dat::core
 
 	void Window::initializeGLEW()
 	{
+		if (applicationStatus.isGLEWInitialized)
+			return;
+
 		if (glewInit() != GLEW_OK)
 		{
 			DAT_CORE_ERROR("Failed to initialize GLEW.");
 			glfwTerminate();
 		}
+
+		applicationStatus.isGLEWInitialized = true;
 	}
 
-	void Window::update() const
+	void Window::pollEvents() const
 	{
 		glfwPollEvents();
+	}
+
+	void Window::swapBuffers() const
+	{
 		glfwSwapBuffers(window());
 	}
 
