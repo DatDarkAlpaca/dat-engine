@@ -1,9 +1,16 @@
 #include <DatEngine.h>
 
-int main()
+struct Transform
 {
-	auto app = dat::core::DatApplication(800, 600, "DatEngine");
-	app.run();
+	glm::vec3 position{ 0.f };
+	glm::vec3 eulerRotation{ 0.f };
+	glm::vec3 scale = { 1.0f, 1.0f, 1.0f };
 
-	return 0;
+	glm::mat4 modelMatrix = glm::mat4(1.0f);
+};
+
+void main()
+{
+	auto app = dat::core::DatApplication(800, 600, "Title");
+	app.run();
 }
