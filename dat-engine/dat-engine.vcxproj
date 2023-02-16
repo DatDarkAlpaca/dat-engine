@@ -206,6 +206,7 @@
     <ClInclude Include="src\DatEngine\API.h" />
     <ClInclude Include="src\DatEngine\Core\ApplicationStatus.h" />
     <ClInclude Include="src\DatEngine\Core\DatApplication.h" />
+    <ClInclude Include="src\DatEngine\Graphics\GraphicAPI.h" />
     <ClInclude Include="src\DatEngine\Utils\FileReader.h" />
     <ClInclude Include="src\DatEngine\Core\InputHandler.h" />
     <ClInclude Include="src\DatEngine\Utils\Logger.h" />

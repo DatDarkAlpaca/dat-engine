@@ -1,15 +1,20 @@
 #include "pch.h"
 #include "DatApplication.h"
+#include "Graphics/GraphicAPI.h"
 
 dat::core::DatApplication::DatApplication(int width, int height, const char* title)
 	: m_Window(width, height, title)
 {
-
+	initialize();
 }
 
 void dat::core::DatApplication::initialize()
 {
+	initializeGLFW();
 
+	m_Window.initialize();
+
+	initializeGLEW();
 }
 
 void dat::core::DatApplication::run()
