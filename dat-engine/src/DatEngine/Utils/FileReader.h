@@ -3,23 +3,14 @@
 
 namespace dat::utils 
 {
-	std::string readFile(const char* filepath)
+	inline std::string readFile(const std::string& filepath)
 	{
-		FILE* file = fopen(filepath, "rt");
+		std::ifstream file(filepath);
 
-		fseek(file, 0, SEEK_END);
-		unsigned long length = ftell(file);
+		std::ostringstream oss;
+		oss << file.rdbuf();
 
-		char* data = new char[length + 1];
-		memset(data, 0, length + 1);
-
-		fseek(file, 0, SEEK_SET);
-		fread(data, 1, length, file);
-
-		fclose(file);
-
-		std::string result(data);
-		delete[] data;
+		std::string result = oss.str();
 
 		return result;
 	}

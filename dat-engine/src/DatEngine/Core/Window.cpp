@@ -23,6 +23,8 @@ namespace dat::core
 		createWindow(m_Width, m_Height, m_Title);
 
 		setContext();
+	
+		setViewport(0, 0, m_Width, m_Height);
 	}
 
 	void Window::createWindow(int width, int height, const char* title)

@@ -158,6 +158,10 @@
       <Project>{92bfafe3-ab90-45b2-892d-0bea75a44ee9}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\frag.glsl" />
+    <None Include="src\vertex.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

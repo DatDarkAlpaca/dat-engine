@@ -23,6 +23,15 @@ namespace dat::core
 			glfwTerminate();
 		}
 
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
 		glfwSetErrorCallback(GLFWErrorCallback);
 
 		applicationStatus.isGLFWInitialized = true;
@@ -33,6 +42,7 @@ namespace dat::core
 		if (applicationStatus.isGLEWInitialized)
 			return;
 
+		glewExperimental = GL_TRUE;
 		if (glewInit() != GLEW_OK)
 		{
 			DAT_CORE_ERROR("Failed to initialize GLEW.");

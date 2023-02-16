@@ -14,6 +14,8 @@ namespace dat::core
 	private:
 		void initialize();
 
+		void shutdown();
+
 	public:
 		void run();
 
