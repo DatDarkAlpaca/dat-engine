@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Shader.h"
-#include "Core/Logger.h"
+#include "Utils/Logger.h"
 #include "Utils/FileReader.h"
 
 namespace 
