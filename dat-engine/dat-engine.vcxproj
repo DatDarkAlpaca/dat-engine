@@ -83,12 +83,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src\DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine;$(ProjectDir)src/DatEngine</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src\DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine;$(ProjectDir)src/DatEngine</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -215,7 +215,7 @@
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\pch.h" />
     <ClInclude Include="src\DatEngine\Utils\Timer.h" />
-    <ClInclude Include="vendor\stb_image\stb_image.h" />
+    <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DatEngine\Core\DatApplication.cpp" />

@@ -23,4 +23,9 @@
     <None Include="src\vertex.glsl" />
     <None Include="src\frag.glsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\character.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
