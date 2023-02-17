@@ -51,9 +51,6 @@
     <ClInclude Include="src\DatEngine\Graphics\GraphicAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vendor\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\DatEngine\Graphics\Texture2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>

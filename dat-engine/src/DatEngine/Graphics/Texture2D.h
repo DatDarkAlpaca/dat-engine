@@ -13,8 +13,8 @@ namespace dat::graphics
 		unsigned int wrapS = GL_REPEAT;
 		unsigned int wrapT = GL_REPEAT;
 
-		unsigned int filterMin = GL_LINEAR;
-		unsigned int filterMax = GL_LINEAR;
+		unsigned int filterMin = GL_NEAREST;
+		unsigned int filterMax = GL_NEAREST;
 	};
 
 	class Texture2D

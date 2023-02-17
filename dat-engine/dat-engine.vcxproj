@@ -216,7 +216,6 @@
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\pch.h" />
     <ClInclude Include="src\DatEngine\Utils\Timer.h" />
-    <ClInclude Include="vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DatEngine\Core\DatApplication.cpp" />
