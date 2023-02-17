@@ -1,16 +1,16 @@
 #pragma once
 
+// Todo: separate the file loading from the shader.
 namespace dat::graphics 
 {
 	class Shader
 	{
 	public:
 		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
-		Shader() = default;
 		~Shader();
 
 	private:
-		unsigned int initializeProgram();
+		unsigned int initializeProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
 
 	public:
 		Shader& bind();
@@ -34,7 +34,5 @@ namespace dat::graphics
 
 	private:
 		unsigned int m_ID = 0;
-
-		const char* m_VertexShaderPath, *m_FragmentShaderPath;
 	};
 }

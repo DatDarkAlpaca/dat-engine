@@ -207,6 +207,7 @@
     <ClInclude Include="src\DatEngine\Core\ApplicationStatus.h" />
     <ClInclude Include="src\DatEngine\Core\DatApplication.h" />
     <ClInclude Include="src\DatEngine\Graphics\GraphicAPI.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Texture2D.h" />
     <ClInclude Include="src\DatEngine\Utils\FileReader.h" />
     <ClInclude Include="src\DatEngine\Core\InputHandler.h" />
     <ClInclude Include="src\DatEngine\Utils\Logger.h" />
@@ -222,6 +223,7 @@
     <ClCompile Include="src\DatEngine\Core\InputHandler.cpp" />
     <ClCompile Include="src\DatEngine\Core\Window.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Texture2D.cpp" />
     <ClCompile Include="src\DatEngine\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

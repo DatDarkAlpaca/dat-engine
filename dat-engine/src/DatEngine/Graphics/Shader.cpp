@@ -55,9 +55,8 @@ namespace
 namespace dat::graphics 
 {
 	Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
-		: m_VertexShaderPath(vertexShaderPath), m_FragmentShaderPath(fragmentShaderPath)
 	{
-		m_ID = initializeProgram();
+		m_ID = initializeProgram(vertexShaderPath, fragmentShaderPath);
 	}
 
 	Shader::~Shader()
@@ -65,13 +64,13 @@ namespace dat::graphics
 		deleteProgram();
 	}
 
-	unsigned int Shader::initializeProgram()
+	unsigned int Shader::initializeProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
 		// Vertex Shader:
-		unsigned int vertexShader = compileShader(m_VertexShaderPath, GL_VERTEX_SHADER, "Vertex");
+		unsigned int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER, "Vertex");
 
 		// Fragment Shader:
-		unsigned int fragmentShader = compileShader(m_FragmentShaderPath, GL_FRAGMENT_SHADER, "Fragment");
+		unsigned int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER, "Fragment");
 
 		// Program:
 		unsigned int program = glCreateProgram();

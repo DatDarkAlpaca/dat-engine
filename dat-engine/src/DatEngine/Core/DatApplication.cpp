@@ -3,9 +3,7 @@
 #include "Graphics/GraphicAPI.h"
 
 #include "Graphics/Shader.h"
-
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "Graphics/Texture2D.h"
 
 dat::core::DatApplication::DatApplication(int width, int height, const char* title)
 	: m_Window(width, height, title)
@@ -20,6 +18,9 @@ void dat::core::DatApplication::initialize()
 	m_Window.initialize();
 
 	initializeGLEW();
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void dat::core::DatApplication::shutdown()
@@ -29,9 +30,6 @@ void dat::core::DatApplication::shutdown()
 
 void dat::core::DatApplication::run()
 {
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 	// Shader:
 	dat::graphics::Shader testShader("./src/vertex.glsl", "./src/frag.glsl");
 
@@ -69,27 +67,7 @@ void dat::core::DatApplication::run()
 	glEnableVertexAttribArray(1);
 
 	// Textures:
-	unsigned int texture;
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	stbi_set_flip_vertically_on_load(true);
-
-	int width, height, nrChannels;
-	unsigned char* data = stbi_load("src/character.png", &width, &height, &nrChannels, 0);
-	
-	if(nrChannels == 3)
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-	if (nrChannels == 4)
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-
-	glGenerateMipmap(GL_TEXTURE_2D);
-	stbi_image_free(data);
+	dat::graphics::Texture2D texture("src/character.png");
 
 	testShader.bind();
 	testShader.setInteger("u_texture", 0);
@@ -103,7 +81,8 @@ void dat::core::DatApplication::run()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture);
+		texture.bind();
+
 		testShader.bind();
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
