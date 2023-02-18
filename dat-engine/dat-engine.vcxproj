@@ -99,7 +99,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +126,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,7 +153,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -182,7 +182,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

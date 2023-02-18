@@ -5,8 +5,6 @@
 #include "Graphics/Shader.h"
 #include "Graphics/Texture2D.h"
 
-#include "Core/Camera.h"
-
 dat::core::DatApplication::DatApplication(int width, int height, const char* title)
 	: m_Window(width, height, title)
 {
