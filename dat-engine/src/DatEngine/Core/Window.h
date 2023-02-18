@@ -18,11 +18,10 @@ namespace dat::core
 	public:
 		Window(int width, int height, const char* title);
 
+	public:
+		void initialize();
+
 	private:
-		void initializeGLFW();
-
-		void initializeGLEW();
-
 		void createWindow(int width, int height, const char* title);
 
 	public:
@@ -45,5 +44,7 @@ namespace dat::core
 
 	private:
 		GLFWSmartWindow m_Window = nullptr;
+		const char* m_Title = nullptr;
+		int m_Width = 0, m_Height = 0;
 	};
 }

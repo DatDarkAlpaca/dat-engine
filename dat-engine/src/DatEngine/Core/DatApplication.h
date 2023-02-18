@@ -4,6 +4,8 @@
 
 namespace dat::core
 {
+	void initializeGLFW();
+
 	class DAT_API DatApplication
 	{
 	public:
@@ -11,6 +13,8 @@ namespace dat::core
 
 	private:
 		void initialize();
+
+		void shutdown();
 
 	public:
 		void run();

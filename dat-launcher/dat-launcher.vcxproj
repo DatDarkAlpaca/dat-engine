@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>DAT_IMPORT;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x86\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x86\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,7 +109,7 @@
       <PreprocessorDefinitions>DAT_IMPORT;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x86\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x86\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;$(SolutionDir)dat-engine\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>DAT_IMPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x64\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x64\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;%(AdditionalIncludeDirectories);$(SolutionDir)dat-engine\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +141,7 @@
       <PreprocessorDefinitions>DAT_IMPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x64\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dat-engine\src\DatEngine;$(SolutionDir)dat-engine\vendor\glfw-x64\include;$(SolutionDir)dat-engine\vendor\glew\include;$(SolutionDir)dat-engine\vendor\glm;$(SolutionDir)dat-engine\vendor\spdlog\include;%(AdditionalIncludeDirectories);$(SolutionDir)dat-engine\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

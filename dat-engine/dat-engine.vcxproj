@@ -83,12 +83,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src\DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine;$(ProjectDir)src/DatEngine</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)src\DatEngine;$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)src;$(ProjectDir)vendor;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)src\DatEngine;$(ProjectDir)src/DatEngine</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,7 +99,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +126,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x86\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,7 +153,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -182,7 +182,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\glfw-x64\include;$(ProjectDir)vendor\glew\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -206,6 +206,8 @@
     <ClInclude Include="src\DatEngine\API.h" />
     <ClInclude Include="src\DatEngine\Core\ApplicationStatus.h" />
     <ClInclude Include="src\DatEngine\Core\DatApplication.h" />
+    <ClInclude Include="src\DatEngine\Graphics\GraphicAPI.h" />
+    <ClInclude Include="src\DatEngine\Graphics\Texture2D.h" />
     <ClInclude Include="src\DatEngine\Utils\FileReader.h" />
     <ClInclude Include="src\DatEngine\Core\InputHandler.h" />
     <ClInclude Include="src\DatEngine\Utils\Logger.h" />
@@ -214,13 +216,13 @@
     <ClInclude Include="src\DatEngine\Graphics\Shader.h" />
     <ClInclude Include="src\DatEngine\pch.h" />
     <ClInclude Include="src\DatEngine\Utils\Timer.h" />
-    <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DatEngine\Core\DatApplication.cpp" />
     <ClCompile Include="src\DatEngine\Core\InputHandler.cpp" />
     <ClCompile Include="src\DatEngine\Core\Window.cpp" />
     <ClCompile Include="src\DatEngine\Graphics\Shader.cpp" />
+    <ClCompile Include="src\DatEngine\Graphics\Texture2D.cpp" />
     <ClCompile Include="src\DatEngine\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

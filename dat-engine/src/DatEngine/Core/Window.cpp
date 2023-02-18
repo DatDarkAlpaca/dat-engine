@@ -4,12 +4,7 @@
 #include "InputHandler.h"
 #include "ApplicationStatus.h"
 
-// Callbacks:
-static void GLFWErrorCallback(int errorCode, const char* description)
-{
-	DAT_CORE_ERROR("GLFW Error [{}]: {}", errorCode, description);
-}
-
+// Callback:
 static void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
@@ -19,30 +14,17 @@ static void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 namespace dat::core 
 {
 	Window::Window(int width, int height, const char* title)
+		: m_Width(width), m_Height(height), m_Title(title)
 	{
-		initializeGLFW();
-
-		createWindow(width, height, title);
-
-		setContext();
-
-		initializeGLEW();
 	}
 
-	void Window::initializeGLFW()
+	void Window::initialize()
 	{
-		if (applicationStatus.isGLFWInitialized)
-			return;
+		createWindow(m_Width, m_Height, m_Title);
 
-		if (glfwInit() != GLFW_TRUE)
-		{
-			DAT_CORE_CRITICAL("Failed to initialize GLFW.");
-			glfwTerminate();
-		}
-
-		glfwSetErrorCallback(GLFWErrorCallback);
-
-		applicationStatus.isGLFWInitialized = true;
+		setContext();
+	
+		setViewport(0, 0, m_Width, m_Height);
 	}
 
 	void Window::createWindow(int width, int height, const char* title)
@@ -62,20 +44,6 @@ namespace dat::core
 		glfwSetMouseButtonCallback(window(), InputHandler::mouseButtonCallback);
 
 		glfwSetFramebufferSizeCallback(m_Window.get(), framebufferSizeCallback);
-	}
-
-	void Window::initializeGLEW()
-	{
-		if (applicationStatus.isGLEWInitialized)
-			return;
-
-		if (glewInit() != GLEW_OK)
-		{
-			DAT_CORE_ERROR("Failed to initialize GLEW.");
-			glfwTerminate();
-		}
-
-		applicationStatus.isGLEWInitialized = true;
 	}
 
 	void Window::pollEvents() const
