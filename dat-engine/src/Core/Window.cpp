@@ -36,6 +36,7 @@ namespace dat::core
 		{
 			DAT_CORE_ERROR("Failed to initialize a GLFW window.");
 			glfwTerminate();
+			return;
 		}
 
 		glfwSetKeyCallback(window(), InputHandler::inputKeyCallback);
