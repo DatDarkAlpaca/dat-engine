@@ -1,5 +1,5 @@
 # Dat Engine
-As the description clearly states, this is a toy engine. It is not meant to be used as a commercial game engine substitute, nor it has - or will ever have - the capacity to do so. 
+As the description clearly states, this is a toy engine that I work on in my free time. It is not a game engine substitute.
 
 # Getting Started
 
@@ -8,26 +8,27 @@ For now, opening the [Visual Studio](https://visualstudio.microsoft.com/pt-br/do
 
 ## Prerequisites
 
-In order to build this project, you'll need to download the following IDE:
+In order to build this project, you need CMake.
 
-- [Visual Studio](https://visualstudio.microsoft.com/pt-br/downloads/)
+- [CMake](https://cmake.org/download/)
 
 ## Downloading
 
-It is fairly easy to download the project, all you need to do is to [clone](https://github.com/DatDarkAlpaca/dat-engine/) it from
-GitHub. There is also the option to [download](https://github.com/DatDarkAlpaca/dat-engine/archive/refs/heads/main.zip)
-a copy of the repository.
-
-If you want to clone the repository using the terminal instead, use:
+It is advised to clone the repository using the following command:
 
 ```bash
-git clone https://github.com/DatDarkAlpaca/dat-engine/
+git clone --recurse-submodules https://github.com/DatDarkAlpaca/dat-engine/
+```
+
+If you cloned it right away and you're facing problems with the vendor files, just execute the following command:
+
+```bash
+git submodule update --init --recursive
 ```
 
 ## Building the project
 
-To build the project, click `Build` then `Build Solution` on Visual Studio. Alternatively, you can use the shortcut `Ctrl+Shift+B`.
-The executable files are generated under `bin/Configuration/Platform`, and the intermediate files are generated under `intermediate/Configuration/Platform`.
+Use whatever IDE you want to configure and build the project. The CMake files will take care of the DLL copying, so it should run without much hassle.
 
 ## License
 
