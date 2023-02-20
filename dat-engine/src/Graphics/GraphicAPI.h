@@ -15,12 +15,16 @@ namespace dat::core
 	inline void initializeGLFW()
 	{
 		if (applicationStatus.isGLFWInitialized)
+		{
+			DAT_CORE_WARN("GLFW is already initialized.");
 			return;
+		}
 
 		if (glfwInit() != GLFW_TRUE)
 		{
 			DAT_CORE_CRITICAL("Failed to initialize GLFW.");
 			glfwTerminate();
+			return;
 		}
 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -40,13 +44,17 @@ namespace dat::core
 	inline void initializeGLEW()
 	{
 		if (applicationStatus.isGLEWInitialized)
+		{
+			DAT_CORE_WARN("GLEW is already initialized.");
 			return;
+		}
 
 		glewExperimental = GL_TRUE;
 		if (glewInit() != GLEW_OK)
 		{
 			DAT_CORE_ERROR("Failed to initialize GLEW.");
 			glfwTerminate();
+			return;
 		}
 
 		applicationStatus.isGLEWInitialized = true;

@@ -1,14 +1,6 @@
 #include "pch.h"
 #include "DatApplication.h"
-//#include "Graphics/GraphicAPI.h"
-//
-//#include "Graphics/Shader.h"
-//#include "Graphics/Texture2D.h"
-
-void dat::core::initializeGLFW()
-{
-	glfwInit();
-}
+#include "Graphics/GraphicAPI.h"
 
 dat::core::DatApplication::DatApplication(int width, int height, const char* title)
 	: m_Window(width, height, title)
@@ -22,16 +14,18 @@ void dat::core::DatApplication::initialize()
 
 	m_Window.initialize();
 
-	//initializeGLEW();
+	initializeGLEW();
 
-	//glEnable(GL_BLEND);
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
 
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void dat::core::DatApplication::shutdown()
 {
+	m_Window.close();
+
 	glfwTerminate();
 }
 
@@ -39,7 +33,7 @@ void dat::core::DatApplication::run()
 {
 	while (!m_Window.isClosed())
 	{
-		//glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		m_Window.pollEvents();
 		m_Window.swapBuffers();
