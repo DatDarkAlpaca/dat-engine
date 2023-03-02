@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include "Event/EventsHeader.h"
 
 namespace dat::core
 {
@@ -22,7 +23,7 @@ namespace dat::core
 		void initialize();
 
 	private:
-		void createWindow(int width, int height, const char* title);
+		void createWindow();
 
 	public:
 		void pollEvents() const;
@@ -34,6 +35,8 @@ namespace dat::core
 
 		void setViewport(GLint x, GLint y, GLsizei width, GLsizei height) const;
 
+		void setEventCallback(const std::function<void(IEvent&)>& callback);
+
 	public:
 		inline bool isClosed() const { return glfwWindowShouldClose(window()); }
 
@@ -44,7 +47,20 @@ namespace dat::core
 
 	private:
 		GLFWSmartWindow m_Window = nullptr;
-		const char* m_Title = nullptr;
-		int m_Width = 0, m_Height = 0;
+
+	private:
+		struct WindowInfo
+		{
+		public:
+			WindowInfo(int width, int height, const char* title)
+				: width(width), height(height), title(title) { }
+
+		public:
+			std::function<void(IEvent&)> eventCallback;
+
+		public:
+			const char* title = nullptr;
+			int width = 0, height= 0;
+		} m_Info;
 	};
 }

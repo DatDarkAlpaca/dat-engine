@@ -18,6 +18,9 @@ namespace dat::core
 		void run();
 
 	private:
+		void onEvent(IEvent& event);
+
+	private:
 		Window m_Window;
 	};
 }

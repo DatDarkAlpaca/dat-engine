@@ -13,6 +13,7 @@ void dat::core::DatApplication::initialize()
 	initializeGLFW();
 
 	m_Window.initialize();
+	m_Window.setEventCallback(std::bind(&DatApplication::onEvent, this, std::placeholders::_1));
 
 	initializeGLEW();
 
@@ -40,4 +41,14 @@ void dat::core::DatApplication::run()
 	}
 
 	shutdown();
+}
+
+void dat::core::DatApplication::onEvent(IEvent& event)
+{
+	EventDispatcher dispatcher(event);
+
+	dispatcher.dispatch<WindowCloseEvent>([](WindowCloseEvent& closeEvent) -> bool {
+		DAT_CORE_INFO("Window closing. Night night!");
+		return true;
+	});
 }

@@ -6,6 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <unordered_map>
+#include <functional>
 #include <vector>
 #include <memory>
 #include <string>
