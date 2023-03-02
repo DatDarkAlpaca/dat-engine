@@ -2,7 +2,7 @@
 
 #include "Window.h"
 #include "Utils/Logger.h"
-#include "ApplicationStatus.h"
+#include "Application/ApplicationStatus.h"
 
 namespace dat::core 
 {

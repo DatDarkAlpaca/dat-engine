@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Core/Window.h"
-#include "Core/DatApplication.h"
-#include "Core/ApplicationStatus.h"
+#include "Window/Window.h"
+#include "Application/DatApplication.h"
+#include "Application/ApplicationStatus.h"
 
 #include "Utils/FileReader.h"
 #include "Utils/Logger.h"
 #include "Utils/Timer.h"
 
-#include "Core/Event/EventsHeader.h"
+#include "Event/EventsHeader.h"

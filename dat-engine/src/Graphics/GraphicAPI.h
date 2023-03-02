@@ -1,5 +1,5 @@
 #pragma once
-#include "Core/ApplicationStatus.h"
+#include "Application/ApplicationStatus.h"
 #include "Utils/Logger.h"
 
 namespace

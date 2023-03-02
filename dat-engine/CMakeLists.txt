@@ -17,6 +17,7 @@ target_include_directories(${TARGET_NAME}
 	PUBLIC
 		${PROJECT_SOURCE_DIR}/vendor/stb
 		${CMAKE_CURRENT_SOURCE_DIR}/src
+		${CMAKE_CURRENT_SOURCE_DIR}/src/Core
 		glm
 		glfw
 		libglew_static

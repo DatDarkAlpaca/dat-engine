@@ -1,6 +1,6 @@
 #pragma once
 #include "API.h"
-#include "Window.h"
+#include "Window/Window.h"
 
 namespace dat::core
 {
