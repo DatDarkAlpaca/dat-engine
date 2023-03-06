@@ -25,6 +25,6 @@ target_compile_definitions (${TARGET_NAME} PRIVATE DAT_IMPORT)
 # Post Build:
 add_custom_command(
         TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-                ${CMAKE_BINARY_DIR}/lib/dat-engine.dll
-                ${CMAKE_BINARY_DIR}/dat-launcher/)
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${CMAKE_CURRENT_SOURCE_DIR}/res
+                ${CMAKE_BINARY_DIR}/dat-launcher/res/)
