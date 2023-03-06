@@ -9,8 +9,9 @@ namespace dat::graphics
 	public:
 		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
 		~Shader();
+		Shader() = default;
 
-	private:
+	public:
 		unsigned int initializeProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
 
 	public:
@@ -33,7 +34,7 @@ namespace dat::graphics
 
 		void setMatrix4f(const char* name, glm::mat4 matrix);
 
-	private:
+	public:
 		unsigned int m_ID = 0;
 	};
 }

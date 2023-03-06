@@ -9,13 +9,14 @@ namespace dat::core
 	Window::Window(int width, int height, const char* title)
 		: m_Info(width, height, title)
 	{
+		DAT_CORE_CRITICAL("How's it going?");
 	}
 
 	void Window::initialize()
 	{
 		createWindow();
 
-		setContext();
+		//setContext();
 	
 		setViewport(0, 0, m_Info.width, m_Info.height);
 	}

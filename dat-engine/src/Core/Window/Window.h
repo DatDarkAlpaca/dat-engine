@@ -56,7 +56,7 @@ namespace dat::core
 				: width(width), height(height), title(title) { }
 
 		public:
-			std::function<void(IEvent&)> eventCallback;
+			std::function<void(IEvent&)> eventCallback = {};
 
 		public:
 			const char* title = nullptr;

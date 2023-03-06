@@ -1,6 +1,7 @@
 #pragma once
 #include "API.h"
 #include "Window/Window.h"
+#include "Core/TinyRenderer.h"
 
 namespace dat::core
 {
@@ -20,7 +21,13 @@ namespace dat::core
 	private:
 		void onEvent(IEvent& event);
 
+		void onRender();
+
 	private:
 		Window m_Window;
+		TinyRenderer m_Renderer;
+		unsigned int vao = 0, vbo = 0;
+
+		Shader shader;
 	};
 }

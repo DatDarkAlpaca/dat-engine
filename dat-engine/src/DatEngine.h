@@ -11,3 +11,4 @@
 #include "Event/EventsHeader.h"
 
 #include "Layer/ILayer.h"
+#include "Core/TinyRenderer.h"

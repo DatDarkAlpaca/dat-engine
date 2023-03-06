@@ -6,7 +6,7 @@
 
 namespace dat::core
 {
-	class IEvent
+	class DAT_API IEvent
 	{
 		friend class EventDispatcher;
 
