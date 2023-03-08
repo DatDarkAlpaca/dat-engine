@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "Event/EventsHeader.h"
 
-namespace dat::core
+namespace dat
 {
 	struct GLFWWindowDeleter
 	{

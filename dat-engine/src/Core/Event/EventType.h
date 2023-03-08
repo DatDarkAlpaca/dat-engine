@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dat::core
+namespace dat
 {
 	enum class EventType
 	{

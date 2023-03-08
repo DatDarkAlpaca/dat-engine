@@ -2,7 +2,7 @@
 #include "glm/glm.hpp"
 
 // Todo: separate the file loading from the shader.
-namespace dat::graphics 
+namespace dat 
 {
 	class Shader
 	{

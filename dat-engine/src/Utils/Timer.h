@@ -1,7 +1,7 @@
 #pragma once
 #include <chrono>
 
-namespace dat::utils
+namespace dat
 {
     class Timer
     {

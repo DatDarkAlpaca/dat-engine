@@ -1,7 +1,7 @@
 #pragma once
 #include "Event/IEvent.h"
 
-namespace dat::core
+namespace dat
 {
 	class ILayer
 	{

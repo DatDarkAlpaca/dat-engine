@@ -5,7 +5,7 @@
 #include "Texture2D.h"
 
 // Todo: separate the file loading from the texture.
-namespace dat::graphics
+namespace dat
 {
 	Texture2D::Texture2D(const char* texturePath, const TextureProperties& properties)
 		: m_Properties(properties)

@@ -3,14 +3,14 @@
 #include "Graphics/GraphicAPI.h"
 #include "Event/EventsHeader.h"
 
-dat::core::DatApplication::DatApplication(int width, int height, const char* title)
+dat::DatApplication::DatApplication(int width, int height, const char* title)
 	: m_Window(width, height, title)
 {
 	initialize();
 	
 }
 
-void dat::core::DatApplication::initialize()
+void dat::DatApplication::initialize()
 {
 	initializeGLFW();
 
@@ -47,14 +47,14 @@ void dat::core::DatApplication::initialize()
 	glBindVertexArray(0);
 }
 
-void dat::core::DatApplication::shutdown()
+void dat::DatApplication::shutdown()
 {
 	m_Window.close();
 
 	glfwTerminate();
 }
 
-void dat::core::DatApplication::run()
+void dat::DatApplication::run()
 {
 	while (!m_Window.isClosed())
 	{
@@ -64,7 +64,7 @@ void dat::core::DatApplication::run()
 	shutdown();
 }
 
-void dat::core::DatApplication::onEvent(IEvent& event)
+void dat::DatApplication::onEvent(IEvent& event)
 {
 	EventDispatcher dispatcher(event);
 
@@ -74,7 +74,7 @@ void dat::core::DatApplication::onEvent(IEvent& event)
 	});
 }
 
-void dat::core::DatApplication::onRender()
+void dat::DatApplication::onRender()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.3, 0.0, 0.5, 1.0);

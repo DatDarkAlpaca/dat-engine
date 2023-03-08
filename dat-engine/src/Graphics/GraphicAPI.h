@@ -10,7 +10,7 @@ namespace
 	}
 }
 
-namespace dat::core
+namespace dat
 {
 	inline void initializeGLFW()
 	{

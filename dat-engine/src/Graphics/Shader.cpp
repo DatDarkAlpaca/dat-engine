@@ -25,7 +25,7 @@ namespace
 	unsigned int compileShader(const char* filepath, unsigned int type, const char* typeName)
 	{
 		unsigned int shader = glCreateShader(type);
-		std::string vertexSource = dat::utils::readFile(filepath);
+		std::string vertexSource = dat::readFile(filepath);
 
 		const char* vertexSrc = vertexSource.c_str();
 		glShaderSource(shader, 1, &vertexSrc, NULL);
@@ -53,7 +53,7 @@ namespace
 	}
 }
 
-namespace dat::graphics 
+namespace dat 
 {
 	Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{

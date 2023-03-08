@@ -1,7 +1,7 @@
 #pragma once
 #include "../IEvent.h"
 
-namespace dat::core
+namespace dat
 {
 	class WindowCloseEvent : public IEvent
 	{

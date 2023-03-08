@@ -2,7 +2,7 @@
 #include <functional>
 #include "IEvent.h"
 
-namespace dat::core
+namespace dat
 {
 	class EventDispatcher
 	{

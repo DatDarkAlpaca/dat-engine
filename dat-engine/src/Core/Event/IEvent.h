@@ -4,7 +4,7 @@
 
 #define STATIC_EVENT_TYPE(type) static EventType eventType() { return EventType::type; }
 
-namespace dat::core
+namespace dat
 {
 	class DAT_API IEvent
 	{

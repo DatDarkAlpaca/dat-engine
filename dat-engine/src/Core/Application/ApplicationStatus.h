@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dat::core
+namespace dat
 {
 	struct ApplicationStatus
 	{

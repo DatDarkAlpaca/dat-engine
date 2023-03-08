@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dat::graphics
+namespace dat
 {
 	struct TextureProperties
 	{

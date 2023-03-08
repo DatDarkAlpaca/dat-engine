@@ -2,9 +2,9 @@
 #include "API.h"
 #include "Graphics/Shader.h"
 
-namespace { using namespace dat::graphics; }
+namespace { using namespace dat; }
 
-namespace dat::core
+namespace dat
 {
 	class TinyRenderer
 	{

@@ -4,7 +4,7 @@
 #include "Utils/Logger.h"
 #include "Application/ApplicationStatus.h"
 
-namespace dat::core 
+namespace dat 
 {
 	Window::Window(int width, int height, const char* title)
 		: m_Info(width, height, title)

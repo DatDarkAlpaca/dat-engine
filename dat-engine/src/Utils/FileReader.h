@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 
-namespace dat::utils 
+namespace dat
 {
 	inline std::string readFile(const std::string& filepath)
 	{

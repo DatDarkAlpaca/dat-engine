@@ -3,7 +3,7 @@
 #include "Window/Window.h"
 #include "Core/TinyRenderer.h"
 
-namespace dat::core
+namespace dat
 {
 	class DAT_API DatApplication
 	{
