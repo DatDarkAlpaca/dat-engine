@@ -26,8 +26,6 @@ namespace dat
 	private:
 		Window m_Window;
 		TinyRenderer m_Renderer;
-		unsigned int vao = 0, vbo = 0;
-
 		Shader shader;
 	};
 }
