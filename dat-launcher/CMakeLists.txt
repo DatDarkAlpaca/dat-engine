@@ -22,9 +22,14 @@ endif()
 
 target_compile_definitions (${TARGET_NAME} PRIVATE DAT_IMPORT)
 
-# Post Build:
+add_custom_target(copy-resources ALL DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/res)
+
 add_custom_command(
-        TARGET ${TARGET_NAME} POST_BUILD
+        TARGET copy-resources POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
                 ${CMAKE_CURRENT_SOURCE_DIR}/res
-                ${CMAKE_BINARY_DIR}/dat-launcher/res/)
+                ${CMAKE_BINARY_DIR}/dat-launcher/res/
+        DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/res
+)
+
+add_dependencies(${TARGET_NAME} copy-resources)

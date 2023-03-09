@@ -35,15 +35,16 @@ namespace dat
 		vao->bind();
 
 		std::vector<float> vertices = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.0f,  0.5f, 0.0f,
+			-0.5f, -0.5f, 0.0f, 0.5f, 0.59f, 0.7f,
+			 0.5f, -0.5f, 0.0f, 0.0, 0.0, 0.0,
+			 0.0f,  0.5f, 0.0f, 0.1f, 0.54f, 0.3f,
 		};
 		vbo = new VertexBuffer(std::vector<float>(vertices), GL_STATIC_DRAW); 
 
 		// Attributes:
 		VertexAttributes attributes;
 		attributes.addAttribute(0, 3, AttributeType::FLOAT, false);
+		attributes.addAttribute(1, 3, AttributeType::FLOAT, false);
 
 		vao->enableAttributes(attributes);
 
