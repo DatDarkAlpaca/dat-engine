@@ -15,9 +15,9 @@ namespace dat
 		void enableAttributes(const VertexAttributes& attributes);
 
 	public:
-		void bind() const { glBindVertexArray(m_ID); }
+		void bind() const;
 
-		void unbind() const { glBindVertexArray(0); }
+		void unbind() const;
 
 	private:
 		unsigned int m_ID = -1;

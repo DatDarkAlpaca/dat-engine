@@ -18,5 +18,15 @@ namespace dat
 		glBindBuffer(GL_ARRAY_BUFFER, m_ID);
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), data.data(), usage);
 	}
+
+	void VertexBuffer::bind() const
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_ID);
+	}
+
+	void VertexBuffer::unbind() const
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+	}
 }
 

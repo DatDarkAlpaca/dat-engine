@@ -17,16 +17,16 @@ namespace dat
 		void addAttribute(unsigned int location, size_t size, AttributeType type, bool normalized);
 
 	public:
-		AttributesIt begin() { return m_Attributes.begin(); }
+		AttributesIt begin();
 
-		AttributesIt end() { return m_Attributes.end(); }
+		AttributesIt end();
 
-		AttributesCIt begin() const { return m_Attributes.cbegin(); }
+		AttributesCIt begin() const;
 		
-		AttributesCIt end() const { return m_Attributes.cend(); }
+		AttributesCIt end() const;
 
 	public:
-		unsigned int stride() const { return m_Stride; }
+		unsigned int stride() const;
 
 	private:
 		std::vector<Attribute> m_Attributes;

@@ -26,4 +26,14 @@ namespace dat
 			offset += attribute.size * getAttributeSize(attribute.type);
 		}
 	}
+
+	void VertexArray::bind() const
+	{
+		glBindVertexArray(m_ID);
+	}
+
+	void VertexArray::unbind() const
+	{
+		glBindVertexArray(0);
+	}
 }

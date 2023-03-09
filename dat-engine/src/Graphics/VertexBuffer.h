@@ -16,9 +16,9 @@ namespace dat
 		void initialize(const std::vector<float>& data, GLenum usage);
 
 	public:
-		void bind() const { glBindBuffer(GL_ARRAY_BUFFER, m_ID); }
+		void bind() const;
 
-		void unbind() const { glBindBuffer(GL_ARRAY_BUFFER, 0); }
+		void unbind() const;
 
 	private:
 		unsigned int m_ID = -1;
