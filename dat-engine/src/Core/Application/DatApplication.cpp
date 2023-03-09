@@ -28,7 +28,7 @@ namespace dat
 
 		initializeGLEW();
 
-		shader.m_ID = shader.initializeProgram("res/vertex.glsl", "res/frag.glsl");
+		shader = new Shader("res/vertex.glsl", "res/frag.glsl");
 
 		// Graphics:
 		vao = new VertexArray();
@@ -84,7 +84,7 @@ namespace dat
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.3, 0.0, 0.5, 1.0);
 
-		shader.bind();
+		shader->bind();
 		vao->bind();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 

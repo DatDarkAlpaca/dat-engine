@@ -1,18 +1,14 @@
 #pragma once
 #include "glm/glm.hpp"
 
-// Todo: separate the file loading from the shader.
 namespace dat 
 {
 	class Shader
 	{
 	public:
 		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
-		~Shader();
 		Shader() = default;
-
-	public:
-		unsigned int initializeProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
+		~Shader();
 
 	public:
 		Shader& bind();

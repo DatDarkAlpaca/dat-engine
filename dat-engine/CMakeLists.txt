@@ -6,7 +6,7 @@ file (GLOB_RECURSE SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 file (GLOB_RECURSE HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
-add_library (${TARGET_NAME} SHARED ${SOURCE_FILES} ${HEADER_FILES})
+add_library (${TARGET_NAME} SHARED ${SOURCE_FILES} ${HEADER_FILES} "src/Graphics/TextureProperties.h")
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/glew-cmake" "vendor/glew-cmake")
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/glfw" "vendor/glfw")

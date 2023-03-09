@@ -4,9 +4,24 @@
 #include "Utils/Logger.h"
 #include "Utils/FileReader.h"
 
-namespace 
+namespace
 {
-	void checkCompileErrors(unsigned int object, const char* type)
+	static std::string shaderTypeStr(unsigned int shaderType)
+	{
+		switch (shaderType)
+		{
+		case GL_VERTEX_SHADER:
+			return "Vertex";
+		case GL_FRAGMENT_SHADER:
+			return "Fragment";
+		case GL_GEOMETRY_SHADER:
+			return "Geometry";
+		default:
+			return "";
+		}
+	}
+
+	static void checkCompileErrors(unsigned int object, unsigned int type)
 	{
 		int success;
 		char infoLog[1024];
@@ -16,13 +31,14 @@ namespace
 		if (!success)
 		{
 			glGetShaderInfoLog(object, 512, NULL, infoLog);
-			DAT_CORE_ERROR("{} Shader Error:\n{}", type, infoLog);
+
+			DAT_CORE_ERROR("{} Shader Error:\n{}", shaderTypeStr(type), infoLog);
 
 			glDeleteShader(object);
 		}
 	}
 
-	unsigned int compileShader(const char* filepath, unsigned int type, const char* typeName)
+	static unsigned int compileShader(const char* filepath, unsigned int type)
 	{
 		unsigned int shader = glCreateShader(type);
 		std::string vertexSource = dat::readFile(filepath);
@@ -31,12 +47,12 @@ namespace
 		glShaderSource(shader, 1, &vertexSrc, NULL);
 		glCompileShader(shader);
 
-		checkCompileErrors(shader, "Vertex");
+		checkCompileErrors(shader, type);
 
 		return shader;
 	}
 
-	void checkLinkErrors(unsigned int object)
+	static void checkLinkErrors(unsigned int object)
 	{
 		int success;
 		char infoLog[1024];
@@ -51,29 +67,13 @@ namespace
 			glDeleteProgram(object);
 		}
 	}
-}
 
-namespace dat 
-{
-	Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
+	static unsigned int createProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
-		m_ID = initializeProgram(vertexShaderPath, fragmentShaderPath);
-	}
+		unsigned int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER);
 
-	Shader::~Shader()
-	{
-		deleteProgram();
-	}
+		unsigned int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
 
-	unsigned int Shader::initializeProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
-	{
-		// Vertex Shader:
-		unsigned int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER, "Vertex");
-
-		// Fragment Shader:
-		unsigned int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER, "Fragment");
-
-		// Program:
 		unsigned int program = glCreateProgram();
 		glAttachShader(program, vertexShader);
 		glAttachShader(program, fragmentShader);
@@ -87,6 +87,19 @@ namespace dat
 		glDeleteShader(fragmentShader);
 
 		return program;
+	}
+}
+
+namespace dat 
+{
+	Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
+	{
+		m_ID = createProgram(vertexShaderPath, fragmentShaderPath);
+	}
+
+	Shader::~Shader()
+	{
+		deleteProgram();
 	}
 
 	Shader& Shader::bind()

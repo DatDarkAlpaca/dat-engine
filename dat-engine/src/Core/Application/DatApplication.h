@@ -26,6 +26,6 @@ namespace dat
 	private:
 		Window m_Window;
 		TinyRenderer m_Renderer;
-		Shader shader;
+		Shader* shader;
 	};
 }
