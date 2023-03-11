@@ -7,10 +7,7 @@ namespace dat
 	class ResourceHolder
 	{
 	public:
-		void add(std::string_view resourceName, std::shared_ptr<Resource>&& resource)
-		{
-			m_Resources[resourceName] = resource;
-		}
+		void add(std::string_view resourceName, std::shared_ptr<Resource>&& resource);
 
 		Resource& get(std::string_view resourceName)
 		{
@@ -20,6 +17,4 @@ namespace dat
 	protected:
 		std::unordered_map<std::string_view, std::shared_ptr<Resource>> m_Resources;
 	};
-
-	using ShaderHolder = ResourceHolder<Shader>;
 }
