@@ -7,6 +7,8 @@
 
 #include <unordered_map>
 #include <functional>
+#include <algorithm>
+#include <numeric>
 #include <vector>
 #include <memory>
 #include <string>

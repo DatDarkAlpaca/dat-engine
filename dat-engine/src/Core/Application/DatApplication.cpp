@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Utils/Logger.h"
 #include "DatApplication.h"
 #include "Graphics/GraphicAPI.h"
 #include "Event/EventsHeader.h"
@@ -13,6 +14,8 @@ namespace dat
 
 	void DatApplication::initialize()
 	{
+		initializeLogger();
+
 		initializeGLFW();
 
 		m_Window.initialize();
@@ -54,7 +57,17 @@ namespace dat
 		});
 
 		dispatcher.dispatch<MouseMoveEvent>([](MouseMoveEvent& moveEvent) -> bool {
-			// DAT_CORE_INFO("({}, {})", moveEvent.x, moveEvent.y);
+			DAT_CORE_DEBUG("({}, {})", moveEvent.x, moveEvent.y);
+			return true;
+		});
+
+		dispatcher.dispatch<MousePressedEvent>([](MousePressedEvent& buttonEvent) -> bool {
+			DAT_CORE_DEBUG("{} pressed with {} mod.", debugButtonName(buttonEvent.button), debugButtonMods(buttonEvent.mods));
+			return true;
+		});
+
+		dispatcher.dispatch<MouseReleasedEvent>([](MouseReleasedEvent& buttonEvent) -> bool {
+			DAT_CORE_DEBUG("{} released with {} mod.", debugButtonName(buttonEvent.button), debugButtonMods(buttonEvent.mods));
 			return true;
 		});
 

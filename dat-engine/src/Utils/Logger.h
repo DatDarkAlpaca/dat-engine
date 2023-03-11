@@ -1,5 +1,5 @@
 #pragma once
-
+#include "API.h"
 #include <spdlog/spdlog.h>
 
 namespace dat
@@ -7,7 +7,7 @@ namespace dat
 	inline void initializeLogger()
 	{
 #if defined(_DEBUG)
-		spdlog::set_level(spdlog::level::trace);
+		spdlog::set_level(spdlog::level::debug);
 #endif
 	}
 }

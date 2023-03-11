@@ -54,6 +54,34 @@ namespace dat
 			MouseMoveEvent mouseMove(x, y);
 			info.eventCallback(mouseMove);
 		});
+
+		glfwSetMouseButtonCallback(m_Window.get(), [](GLFWwindow* window, int button, int action, int mods) {
+			WindowInfo& info = *(WindowInfo*)glfwGetWindowUserPointer(window);
+			
+			switch (action)
+			{
+				case MouseAction::BTN_RELEASE:
+				{
+					MouseReleasedEvent releasedEvent(button, mods);
+					info.eventCallback(releasedEvent);
+					return;
+				}
+
+				case MouseAction::BTN_PRESS:
+				{
+					MousePressedEvent pressEvent(button, mods);
+					info.eventCallback(pressEvent);
+					return;
+				}
+
+				case MouseAction::BTN_REPEAT:
+				{
+					MouseRepeatEvent repeatEvent(button, mods);
+					info.eventCallback(repeatEvent);
+					return;
+				}
+			}
+		});
 	}
 
 	void Window::pollEvents() const

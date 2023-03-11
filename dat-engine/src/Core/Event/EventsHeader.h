@@ -7,3 +7,7 @@
 #include "Implemented/WindowResizeEvent.h"
 
 #include "Implemented/MouseMoveEvent.h"
+#include "Implemented/MouseButtonEvent.h"
+#include "Implemented/MouseReleasedEvent.h"
+#include "Implemented/MousePressedEvent.h"
+#include "Implemented/MouseRepeatEvent.h"
