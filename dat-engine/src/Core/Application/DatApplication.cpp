@@ -48,6 +48,11 @@ namespace dat
 			return true;
 		});
 
+		dispatcher.dispatch<WindowResizeEvent>([](WindowResizeEvent& resizeEvent) -> bool {
+			glViewport(0, 0, resizeEvent.width, resizeEvent.height);
+			return true;
+		});
+
 		m_LayerStack.onEvent(event);
 	}
 

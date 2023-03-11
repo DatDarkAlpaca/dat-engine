@@ -34,7 +34,6 @@ namespace dat
 #ifdef __APPLE__
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
-		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 		glfwSetErrorCallback(GLFWErrorCallback);
 

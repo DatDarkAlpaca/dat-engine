@@ -4,3 +4,4 @@
 #include "Event/EventDispatcher.h"
 
 #include "Implemented/WindowCloseEvent.h"
+#include "Implemented/WindowResizeEvent.h"

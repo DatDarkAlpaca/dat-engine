@@ -6,6 +6,7 @@ namespace dat
 	{
 		NONE_EVENT = 0,
 		WINDOW_CLOSE_EVENT,
+		WINDOW_RESIZE_EVENT,
 		AMOUNT_EVENT
 	};
 }

@@ -44,7 +44,9 @@ namespace dat
 		});
 
 		glfwSetFramebufferSizeCallback(m_Window.get(), [](GLFWwindow* window, int width, int height) {
-			glViewport(0, 0, width, height);
+			WindowInfo& info = *(WindowInfo*)glfwGetWindowUserPointer(window);
+			WindowResizeEvent resizeEvent(width, height);
+			info.eventCallback(resizeEvent);
 		});
 	}
 
