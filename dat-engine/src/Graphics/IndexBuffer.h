@@ -3,7 +3,7 @@
 
 namespace dat
 {
-	class IndexBuffer
+	class DAT_API IndexBuffer
 	{
 	public:
 		IndexBuffer(const std::vector<unsigned int>& data, GLenum usage = GL_STATIC_DRAW);

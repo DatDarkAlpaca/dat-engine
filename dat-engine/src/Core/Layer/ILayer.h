@@ -1,9 +1,10 @@
 #pragma once
 #include "Event/IEvent.h"
+#include "API.h"
 
 namespace dat
 {
-	class ILayer
+	class DAT_API ILayer
 	{
 	public:
 		virtual ~ILayer() = default;
@@ -14,6 +15,8 @@ namespace dat
 		virtual void onLayerRemoved() { }
 
 		virtual void onUpdate() { }
+
+		virtual void onRender() { }
 
 		virtual void onEvent(IEvent& event) { }
 	};

@@ -3,7 +3,7 @@
 
 namespace dat 
 {
-	class Shader
+	class DAT_API Shader
 	{
 	public:
 		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);

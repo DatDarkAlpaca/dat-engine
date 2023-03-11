@@ -4,7 +4,7 @@
 
 namespace dat
 {
-	class VertexAttributes
+	class DAT_API VertexAttributes
 	{
 	private:
 		using AttributesCIt = std::vector<Attribute>::const_iterator;
