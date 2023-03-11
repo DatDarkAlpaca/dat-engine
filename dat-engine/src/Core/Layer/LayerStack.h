@@ -8,40 +8,17 @@ namespace dat
 	class DAT_API LayerStack
 	{
 	public:
-		LayerStack() = default;
-
-		~LayerStack()
-		{
-			for (ILayer* layer : m_Layers)
-				delete layer;
-			m_Layers.clear();
-		}
+		~LayerStack();
 
 	public:
-		void addLayer(ILayer* layer)
-		{
-			m_Layers.push_back(layer);
-			layer->onLayerAdded();
-		}
+		void addLayer(ILayer* layer);
 
 	public:
-		void onUpdate() 
-		{
-			for (ILayer* layer : m_Layers)
-				layer->onUpdate();
-		}
+		void onUpdate();
 
-		void onRender()
-		{
-			for (ILayer* layer : m_Layers)
-				layer->onRender();
-		}
+		void onRender();
 
-		void onEvent(IEvent& event) 
-		{ 
-			for (ILayer* layer : m_Layers)
-				layer->onEvent(event);
-		}
+		void onEvent(IEvent& event);
 
 	public:
 		std::vector<ILayer*> m_Layers;
