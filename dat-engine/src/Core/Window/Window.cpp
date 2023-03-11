@@ -48,6 +48,12 @@ namespace dat
 			WindowResizeEvent resizeEvent(width, height);
 			info.eventCallback(resizeEvent);
 		});
+
+		glfwSetCursorPosCallback(m_Window.get(), [](GLFWwindow* window, double x, double y) {
+			WindowInfo& info = *(WindowInfo*)glfwGetWindowUserPointer(window);
+			MouseMoveEvent mouseMove(x, y);
+			info.eventCallback(mouseMove);
+		});
 	}
 
 	void Window::pollEvents() const

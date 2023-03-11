@@ -53,6 +53,11 @@ namespace dat
 			return true;
 		});
 
+		dispatcher.dispatch<MouseMoveEvent>([](MouseMoveEvent& moveEvent) -> bool {
+			// DAT_CORE_INFO("({}, {})", moveEvent.x, moveEvent.y);
+			return true;
+		});
+
 		m_LayerStack.onEvent(event);
 	}
 
