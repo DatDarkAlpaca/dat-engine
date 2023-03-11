@@ -82,6 +82,12 @@ namespace dat
 				}
 			}
 		});
+	
+		glfwSetScrollCallback(m_Window.get(), [](GLFWwindow* window, double xOffset, double yOffset) {
+			WindowInfo& info = *(WindowInfo*)glfwGetWindowUserPointer(window);
+			MouseScrollEvent scrollEvent(xOffset, yOffset);
+			info.eventCallback(scrollEvent);
+		});
 	}
 
 	void Window::pollEvents() const
