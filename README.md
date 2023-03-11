@@ -1,5 +1,5 @@
 # Dat Engine
-As the description clearly states, this is a toy engine that I work on in my free time. It is not a game engine substitute.
+As the description clearly states, this is a toy engine that I work on in my free time. It is not a commercial game engine substitute.
 
 # Getting Started
 
