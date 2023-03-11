@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Utils/Logger.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -13,6 +14,12 @@ namespace
 
 		int width, height, nrChannels;
 		unsigned char* data = stbi_load(texturePath, &width, &height, &nrChannels, 0);
+
+		if (!data)
+		{
+			DAT_CORE_ERROR("Failed to load texture: {}", texturePath);
+			return;
+		}
 
 		properties.width = width;
 		properties.height = height;

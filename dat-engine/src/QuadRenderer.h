@@ -20,18 +20,19 @@ namespace dat
 			m_VAO.bind();
 
 			VertexBuffer vbo ({
-				0.0f, 1.0f, 0.0f,
-				1.0f, 0.0f, 0.0f,
-				0.0f, 0.0f, 0.0f,
+				 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+				 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+				-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
 
-				0.0f, 1.0f, 0.0f,
-				1.0f, 1.0f, 0.0f,
-				1.0f, 0.0f, 0.0f
+				-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+				-0.5f,  0.5f, 0.0f, 0.0f, 1.0f,
+				 0.5f,  0.5f, 0.0f, 1.0f, 1.0f
 			});
 
 			{
 				VertexAttributes attributes;
 				attributes.addAttribute(0, 3, AttributeType::FLOAT, GL_FALSE);
+				attributes.addAttribute(1, 2, AttributeType::FLOAT, GL_FALSE);
 				m_VAO.enableAttributes(attributes);
 			}
 
@@ -39,7 +40,7 @@ namespace dat
 		}
 
 	public:
-		void drawQuad(glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color)
+		void drawQuad(Texture2D& texture, glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color)
 		{
 			m_Shader->bind();
 
@@ -57,6 +58,9 @@ namespace dat
 			m_Shader->setMatrix4f("u_projection", projection);
 			m_Shader->setMatrix4f("u_model", model);
 			m_Shader->setVector3f("u_color", color);
+
+			// glActiveTexture(GL_TEXTURE0);
+			texture.bind();
 
 			m_VAO.bind();
 			glDrawArrays(GL_TRIANGLES, 0, 6);

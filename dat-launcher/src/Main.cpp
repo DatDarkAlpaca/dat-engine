@@ -10,18 +10,22 @@ public:
 		m_Shaders.add("quad", std::make_shared<Shader>("res/quad_vertex.glsl", "res/quad_frag.glsl"));
 		Shader* shader = m_Shaders.get("quad");
 	
+		m_Textures.add("texture", std::make_shared<Texture2D>("res/brick.jpg"));
+		
 		renderer = new QuadRenderer(shader);
 	}
 
 public:
 	void onRender() override
 	{
-		renderer->drawQuad({ 100.f, 100.f }, { 50.f, 50.f }, 0, { 0.1f, 0.4f, 0.7f });
+		Texture2D* texture = m_Textures.get("texture");
+		renderer->drawQuad(*texture, { 100.f, 100.f }, { 150.f, 150.f }, 0, { 0.1f, 0.4f, 0.7f });
 	}
 
 private:
 	QuadRenderer* renderer = nullptr;
 	ResourceHolder<Shader> m_Shaders;
+	ResourceHolder<Texture2D> m_Textures;
 };
 
 class Client : public DatApplication

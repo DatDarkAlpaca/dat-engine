@@ -1,9 +1,10 @@
 #pragma once
+#include "API.h"
 #include "TextureProperties.h"
 
 namespace dat
 {
-	class Texture2D
+	class DAT_API Texture2D
 	{
 	public:
 		Texture2D(const char* texturePath, const TextureProperties& properties = {});

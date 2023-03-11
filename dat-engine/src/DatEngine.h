@@ -4,6 +4,8 @@
 #include "Application/DatApplication.h"
 #include "Application/ApplicationStatus.h"
 
+#include "Graphics/Shader.h"
+#include "Graphics/Texture2d.h"
 #include "Graphics/VertexArray.h"
 #include "Graphics/VertexBuffer.h"
 #include "Graphics/IndexBuffer.h"
