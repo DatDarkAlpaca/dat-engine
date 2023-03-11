@@ -5,6 +5,8 @@ layout (location = 1) in vec2 a_uvs;
 uniform mat4 u_model = mat4(1.0);
 uniform mat4 u_projection = mat4(1.0);
 
+uniform vec2 u_pos_offset = vec2(0.0);
+
 out vec2 v_uvs;
 
 void main()

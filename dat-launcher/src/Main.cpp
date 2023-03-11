@@ -19,10 +19,21 @@ public:
 	void onRender() override
 	{
 		Texture2D* texture = m_Textures.get("texture");
-		renderer->drawQuad(*texture, { 100.f, 100.f }, { 150.f, 150.f }, 0, { 0.1f, 0.4f, 0.7f });
+		renderer->drawQuad(*texture, { x, y }, { 150.f, 150.f }, 0, { 0.1f, 0.4f, 0.7f });
+	}
+
+	void onEvent(IEvent& event) override
+	{
+		EventDispatcher dispatcher(event);
+		dispatcher.dispatch<MouseMoveEvent>([&](MouseMoveEvent& mousePressedEvent) {
+			x = mousePressedEvent.x;
+			y = mousePressedEvent.y;
+			return true;
+		});
 	}
 
 private:
+	float x, y;
 	QuadRenderer* renderer = nullptr;
 	ResourceHolder<Shader> m_Shaders;
 	ResourceHolder<Texture2D> m_Textures;
