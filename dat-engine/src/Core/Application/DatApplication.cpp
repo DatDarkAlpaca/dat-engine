@@ -56,11 +56,6 @@ namespace dat
 			return true;
 		});
 
-		dispatcher.dispatch<MouseScrollEvent>([](MouseScrollEvent& scrollEvent) -> bool {
-			DAT_CORE_DEBUG("({}, {})", scrollEvent.xOffset, scrollEvent.yOffset);
-			return true;
-		});
-
 		m_LayerStack.onEvent(event);
 	}
 
