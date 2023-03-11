@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.16)
 
 set(TARGET_NAME "dat-engine")
 
@@ -31,6 +31,8 @@ target_link_libraries(${TARGET_NAME}
 		libglew_static
 		spdlog
 )
+
+target_precompile_headers(${TARGET_NAME} PUBLIC "src/pch.h")
 
 target_compile_features(${TARGET_NAME} PUBLIC cxx_std_17)
 
