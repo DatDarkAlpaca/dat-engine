@@ -4,7 +4,7 @@
 
 namespace dat
 {
-	class VertexArray
+	class DAT_API VertexArray
 	{
 	public:
 		VertexArray();

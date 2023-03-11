@@ -1,7 +1,7 @@
 #pragma once
 #include "API.h"
 #include "Window/Window.h"
-#include "Core/TinyRenderer.h"
+#include "Layer/LayerStack.h"
 
 namespace dat
 {
@@ -23,7 +23,11 @@ namespace dat
 
 		void onRender();
 
+	public:
+		LayerStack& layers() { return m_LayerStack; }
+
 	private:
+		LayerStack m_LayerStack;
 		Window m_Window;
 	};
 }

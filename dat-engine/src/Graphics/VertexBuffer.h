@@ -3,7 +3,7 @@
 
 namespace dat
 {
-	class VertexBuffer
+	class DAT_API VertexBuffer
 	{
 	public:
 		VertexBuffer(const std::vector<float>& data, GLenum usage = GL_STATIC_DRAW);

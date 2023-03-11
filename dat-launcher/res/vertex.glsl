@@ -1,11 +1,9 @@
 #version 330 core
 layout (location = 0) in vec3 a_position;
-layout (location = 1) in vec3 a_colors;
 
-out vec3 v_colors;
+uniform mat4 u_model = mat4(1.0); 
 
 void main()
 {
-	v_colors = a_colors;
-	gl_Position = vec4(a_position, 1.0);
+	gl_Position = u_model * vec4(a_position, 1.0);
 }

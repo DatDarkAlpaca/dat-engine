@@ -33,6 +33,8 @@ namespace dat
 	{
 		while (!m_Window.isClosed())
 		{
+			m_LayerStack.onUpdate();
+
 			onRender();
 		}
 
@@ -46,12 +48,16 @@ namespace dat
 		dispatcher.dispatch<WindowCloseEvent>([](WindowCloseEvent& closeEvent) -> bool {
 			return true;
 		});
+
+		m_LayerStack.onEvent(event);
 	}
 
 	void DatApplication::onRender()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.f, 0.f, 0.f, 1.0);
+
+		m_LayerStack.onRender();
 
 		m_Window.swapBuffers();
 		m_Window.pollEvents();
