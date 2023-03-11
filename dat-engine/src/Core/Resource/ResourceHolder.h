@@ -7,7 +7,10 @@ namespace dat
 	class ResourceHolder
 	{
 	public:
-		void add(std::string_view resourceName, std::shared_ptr<Resource>&& resource);
+		void add(std::string_view resourceName, std::shared_ptr<Resource>&& resource)
+		{
+			m_Resources[resourceName] = resource;
+		}
 
 		Resource& get(std::string_view resourceName)
 		{
