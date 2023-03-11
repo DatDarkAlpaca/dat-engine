@@ -12,9 +12,9 @@ namespace dat
 			m_Resources[resourceName] = resource;
 		}
 
-		Resource& get(std::string_view resourceName)
+		Resource* get(std::string_view resourceName)
 		{
-			return *m_Resources[resourceName];
+			return m_Resources[resourceName].get();
 		}
 
 	protected:

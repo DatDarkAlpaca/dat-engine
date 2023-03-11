@@ -17,7 +17,6 @@ namespace dat
 
 		m_Window.initialize();
 		m_Window.setEventCallback(std::bind(&DatApplication::onEvent, this, std::placeholders::_1));
-		m_Window.setContext();
 
 		initializeGLEW();
 	}

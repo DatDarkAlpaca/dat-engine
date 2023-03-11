@@ -18,4 +18,6 @@
 #include "Layer/ILayer.h"
 #include "Layer/LayerStack.h"
 
+#include "QuadRenderer.h"
+
 #include "Resource/ResourceHolder.h"

@@ -15,7 +15,7 @@ namespace dat
 	{
 		createWindow();
 
-		//setContext();
+		setContext();
 	
 		setViewport(0, 0, m_Info.width, m_Info.height);
 	}
