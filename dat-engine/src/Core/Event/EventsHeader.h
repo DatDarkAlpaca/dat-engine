@@ -12,3 +12,8 @@
 #include "Implemented/MousePressedEvent.h"
 #include "Implemented/MouseRepeatEvent.h"
 #include "Implemented/MouseScrollEvent.h"
+
+#include "Implemented/KeyButtonEvent.h"
+#include "Implemented/KeyPressedEvent.h"
+#include "Implemented/KeyReleasedEvent.h"
+#include "Implemented/KeyRepeatEvent.h"
