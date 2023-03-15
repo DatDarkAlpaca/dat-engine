@@ -88,6 +88,34 @@ namespace dat
 			MouseScrollEvent scrollEvent(xOffset, yOffset);
 			info.eventCallback(scrollEvent);
 		});
+
+		glfwSetKeyCallback(m_Window.get(), [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+			WindowInfo& info = *(WindowInfo*)glfwGetWindowUserPointer(window);
+			
+			switch (action)
+			{
+				case KeyAction::KEY_RELEASE:
+				{
+					KeyReleasedEvent releasedEvent(key, mods);
+					info.eventCallback(releasedEvent);
+					return;
+				}
+
+				case KeyAction::KEY_PRESS:
+				{
+					KeyPressedEvent pressEvent(key, mods);
+					info.eventCallback(pressEvent);
+					return;
+				}
+
+				case KeyAction::KEY_REPEAT:
+				{
+					KeyRepeatEvent repeatEvent(key, mods);
+					info.eventCallback(repeatEvent);
+					return;
+				}
+			}
+		});
 	}
 
 	void Window::pollEvents() const
