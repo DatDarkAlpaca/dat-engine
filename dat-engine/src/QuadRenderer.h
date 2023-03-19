@@ -14,7 +14,11 @@ namespace dat
 			initialize(); 
 		}
 
-	private:
+		QuadRenderer() = default;
+
+	public:
+		void setShader(Shader* shader) { m_Shader = shader; }
+
 		void initialize()
 		{
 			m_VAO.bind();
@@ -44,8 +48,6 @@ namespace dat
 		{
 			m_Shader->bind();
 
-			glm::mat4 projection = glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f);
-
 			glm::mat4 model = glm::mat4(1.0f);
 			model = glm::translate(model, glm::vec3(position, 1.f));
 
@@ -55,11 +57,9 @@ namespace dat
 
 			model = glm::scale(model, glm::vec3(size, 1.0f));
 
-			m_Shader->setMatrix4f("u_projection", projection);
 			m_Shader->setMatrix4f("u_model", model);
 			m_Shader->setVector3f("u_color", color);
 
-			// glActiveTexture(GL_TEXTURE0);
 			texture.bind();
 
 			m_VAO.bind();
@@ -67,7 +67,7 @@ namespace dat
 		}
 
 	private:
-		Shader* m_Shader;
+		Shader* m_Shader = nullptr;
 		VertexArray m_VAO;
 	};
 }

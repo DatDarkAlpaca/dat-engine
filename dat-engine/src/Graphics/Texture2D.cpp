@@ -10,7 +10,7 @@ namespace
 {
 	void createTexture(const char* texturePath, dat::TextureProperties& properties)
 	{
-		stbi_set_flip_vertically_on_load(true);
+		// stbi_set_flip_vertically_on_load(true);
 
 		int width, height, nrChannels;
 		unsigned char* data = stbi_load(texturePath, &width, &height, &nrChannels, 0);
