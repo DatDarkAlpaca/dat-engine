@@ -20,6 +20,7 @@
 #include "Layer/ILayer.h"
 #include "Layer/LayerStack.h"
 
+#include "Graphics/Camera/CameraHeaders.h"
 #include "QuadRenderer.h"
 
 #include "Resource/ResourceHolder.h"
