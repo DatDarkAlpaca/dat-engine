@@ -7,8 +7,8 @@ namespace dat
 	class KeyReleasedEvent : public KeyButtonEvent
 	{
 	public:
-		KeyReleasedEvent(int key, int mods)
-			: KeyButtonEvent(key, KeyAction::KEY_RELEASE, mods, EventType::KEY_RELEASED_EVENT)
+		KeyReleasedEvent(Key key, Mods mods)
+			: KeyButtonEvent(key, InputAction::INPUT_RELEASE, mods, EventType::KEY_RELEASED_EVENT)
 		{
 
 		}

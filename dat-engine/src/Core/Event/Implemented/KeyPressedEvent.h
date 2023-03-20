@@ -7,8 +7,8 @@ namespace dat
 	class KeyPressedEvent : public KeyButtonEvent
 	{
 	public:
-		KeyPressedEvent(int key, int mods)
-			: KeyButtonEvent(key, KeyAction::KEY_PRESS, mods, EventType::KEY_PRESSED_EVENT)
+		KeyPressedEvent(Key key, Mods mods)
+			: KeyButtonEvent(key, InputAction::INPUT_PRESS, mods, EventType::KEY_PRESSED_EVENT)
 		{
 
 		}

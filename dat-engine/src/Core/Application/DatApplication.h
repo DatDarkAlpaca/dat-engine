@@ -2,6 +2,7 @@
 #include "API.h"
 #include "Window/Window.h"
 #include "Layer/LayerStack.h"
+#include "Core/Input/InputAPI.h"
 
 namespace dat
 {
@@ -27,6 +28,7 @@ namespace dat
 		LayerStack& layers() { return m_LayerStack; }
 
 	private:
+		InputAPI* m_Input = nullptr;
 		LayerStack m_LayerStack;
 		Window m_Window;
 	};

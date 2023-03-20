@@ -7,8 +7,8 @@ namespace dat
 	class MouseReleasedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseReleasedEvent(int button, int mods)
-			: MouseButtonEvent(button, MouseAction::BTN_RELEASE, mods, EventType::MOUSE_RELEASED_EVENT)
+		MouseReleasedEvent(MouseButton button, Mods mods)
+			: MouseButtonEvent(button, InputAction::INPUT_RELEASE, mods, EventType::MOUSE_RELEASED_EVENT)
 		{
 
 		}

@@ -7,8 +7,8 @@ namespace dat
 	class MousePressedEvent : public MouseButtonEvent
 	{
 	public:
-		MousePressedEvent(int button, int mods)
-			: MouseButtonEvent(button, MouseAction::BTN_PRESS, mods, EventType::MOUSE_PRESSED_EVENT)
+		MousePressedEvent(MouseButton button, Mods mods)
+			: MouseButtonEvent(button, InputAction::INPUT_PRESS, mods, EventType::MOUSE_PRESSED_EVENT)
 		{
 
 		}

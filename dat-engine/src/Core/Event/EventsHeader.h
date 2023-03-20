@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Event/IEvent.h"
-#include "Event/EventDispatcher.h"
+#include "EventDebug.h"
+#include "IEvent.h"
+#include "EventDispatcher.h"
 
 #include "Implemented/WindowCloseEvent.h"
 #include "Implemented/WindowResizeEvent.h"

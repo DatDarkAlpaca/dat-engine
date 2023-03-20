@@ -7,8 +7,8 @@ namespace dat
 	class MouseRepeatEvent : public MouseButtonEvent
 	{
 	public:
-		MouseRepeatEvent(int button, int mods)
-			: MouseButtonEvent(button, MouseAction::BTN_REPEAT, mods, EventType::MOUSE_REPEAT_EVENT)
+		MouseRepeatEvent(MouseButton button, Mods mods)
+			: MouseButtonEvent(button, InputAction::INPUT_REPEAT, mods, EventType::MOUSE_REPEAT_EVENT)
 		{
 
 		}

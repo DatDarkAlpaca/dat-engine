@@ -34,17 +34,10 @@ public:
 
 	void onEvent(IEvent& event) override
 	{
-		EventDispatcher dispatcher(event);
-		dispatcher.dispatch<KeyPressedEvent>([&](KeyPressedEvent& event) {
-			if (event.key == GLFW_KEY_W)
-				y -= 10.f;
-			if (event.key == GLFW_KEY_S)
-				y += 10.f;
-			if (event.key == GLFW_KEY_A)
-				x -= 10.f;
-			if (event.key == GLFW_KEY_D)
-				x += 10.f;
-			return true;
+		EventDispatcher di(event);
+		di.dispatch<MousePressedEvent>([&](MousePressedEvent& eve) {
+			DAT_CORE_CRITICAL("{}", debugMods(eve.mods));
+			return false;
 		});
 	}
 

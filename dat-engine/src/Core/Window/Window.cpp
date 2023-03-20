@@ -60,23 +60,23 @@ namespace dat
 			
 			switch (action)
 			{
-				case MouseAction::BTN_RELEASE:
+				case InputAction::INPUT_RELEASE:
 				{
-					MouseReleasedEvent releasedEvent(button, mods);
+					MouseReleasedEvent releasedEvent((MouseButton)button, (Mods)mods);
 					info.eventCallback(releasedEvent);
 					return;
 				}
 
-				case MouseAction::BTN_PRESS:
+				case InputAction::INPUT_PRESS:
 				{
-					MousePressedEvent pressEvent(button, mods);
+					MousePressedEvent pressEvent((MouseButton)button, (Mods)mods);
 					info.eventCallback(pressEvent);
 					return;
 				}
 
-				case MouseAction::BTN_REPEAT:
+				case InputAction::INPUT_REPEAT:
 				{
-					MouseRepeatEvent repeatEvent(button, mods);
+					MouseRepeatEvent repeatEvent((MouseButton)button, (Mods)mods);
 					info.eventCallback(repeatEvent);
 					return;
 				}
@@ -94,23 +94,23 @@ namespace dat
 			
 			switch (action)
 			{
-				case KeyAction::KEY_RELEASE:
+				case InputAction::INPUT_RELEASE:
 				{
-					KeyReleasedEvent releasedEvent(key, mods);
+					KeyReleasedEvent releasedEvent((Key)key, (Mods)mods);
 					info.eventCallback(releasedEvent);
 					return;
 				}
 
-				case KeyAction::KEY_PRESS:
+				case InputAction::INPUT_PRESS:
 				{
-					KeyPressedEvent pressEvent(key, mods);
+					KeyPressedEvent pressEvent((Key)key, (Mods)mods);
 					info.eventCallback(pressEvent);
 					return;
 				}
 
-				case KeyAction::KEY_REPEAT:
+				case InputAction::INPUT_REPEAT:
 				{
-					KeyRepeatEvent repeatEvent(key, mods);
+					KeyRepeatEvent repeatEvent((Key)key, (Mods)mods);
 					info.eventCallback(repeatEvent);
 					return;
 				}

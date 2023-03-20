@@ -24,3 +24,5 @@
 #include "QuadRenderer.h"
 
 #include "Resource/ResourceHolder.h"
+
+#include "Input/InputAPI.h"
