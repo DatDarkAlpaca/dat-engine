@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Input/Input.h"
 #include "Utils/Logger.h"
 #include "DatApplication.h"
 #include "Graphics/GraphicAPI.h"
@@ -21,7 +22,7 @@ namespace dat
 		m_Window.initialize();
 		m_Window.setEventCallback(std::bind(&DatApplication::onEvent, this, std::placeholders::_1));
 
-		m_Input = new InputAPI(m_Window);
+		Input::initialize(&m_Window);
 
 		initializeGLEW();
 	}

@@ -5,8 +5,8 @@ using namespace dat;
 class Layer : public ILayer
 {
 public:
-	Layer()
-		: camera(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f)
+	Layer(DatApplication* application)
+		: ILayer(application), camera(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f)
 	{
 		m_Shaders.add("quad", std::make_shared<Shader>("res/quad_vertex.glsl", "res/quad_frag.glsl"));
 		Shader* shader = m_Shaders.get("quad");
@@ -55,7 +55,7 @@ public:
 	Client(int width, int height, const char* title)
 		: DatApplication(width, height, title)
 	{
-		layers().addLayer(new Layer());
+		layers().addLayer(new Layer(this));
 	}
 
 public:

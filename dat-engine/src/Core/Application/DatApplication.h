@@ -2,7 +2,6 @@
 #include "API.h"
 #include "Window/Window.h"
 #include "Layer/LayerStack.h"
-#include "Core/Input/InputAPI.h"
 
 namespace dat
 {
@@ -10,6 +9,8 @@ namespace dat
 	{
 	public:
 		DatApplication(int width, int height, const char* title);
+
+		virtual ~DatApplication() = default;
 
 	private:
 		void initialize();
@@ -27,8 +28,9 @@ namespace dat
 	public:
 		LayerStack& layers() { return m_LayerStack; }
 
+		const Window& window() const { return m_Window; }
+
 	private:
-		InputAPI* m_Input = nullptr;
 		LayerStack m_LayerStack;
 		Window m_Window;
 	};

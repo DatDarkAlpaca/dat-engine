@@ -4,9 +4,13 @@
 
 namespace dat
 {
+	class DatApplication;
+
 	class DAT_API ILayer
 	{
 	public:
+		ILayer(DatApplication* application) : application(application) { }
+
 		virtual ~ILayer() = default;
 
 	public:
@@ -19,5 +23,8 @@ namespace dat
 		virtual void onRender() { }
 
 		virtual void onEvent(IEvent& event) { }
+
+	protected:
+		DatApplication* application;
 	};
 }
