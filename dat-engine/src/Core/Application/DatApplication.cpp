@@ -38,7 +38,11 @@ namespace dat
 	{
 		while (!m_Window.isClosed())
 		{
-			m_LayerStack.onUpdate();
+			double time = glfwGetTime();
+			Timestep dt(time - m_LastTime);
+			m_LastTime = time;
+
+			m_LayerStack.onUpdate(dt);
 
 			onRender();
 		}

@@ -2,6 +2,7 @@
 #include "API.h"
 #include "Window/Window.h"
 #include "Layer/LayerStack.h"
+#include "Timestep.h"
 
 namespace dat
 {
@@ -33,5 +34,8 @@ namespace dat
 	private:
 		LayerStack m_LayerStack;
 		Window m_Window;
+
+	private:
+		double m_LastTime = 0;
 	};
 }

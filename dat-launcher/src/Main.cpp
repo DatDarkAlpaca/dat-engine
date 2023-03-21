@@ -16,8 +16,10 @@ public:
 	}
 
 public:
-	void onUpdate() override
+	void onUpdate(Timestep dt) override
 	{
+		DAT_CORE_CRITICAL("{}", dt.timestep());
+
 		camera.setPosition({ x, y, 0.f });
 		camera.computeViewMatrix();
 

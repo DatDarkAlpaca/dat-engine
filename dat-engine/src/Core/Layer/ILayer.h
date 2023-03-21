@@ -1,6 +1,7 @@
 #pragma once
-#include "Event/IEvent.h"
 #include "API.h"
+#include "Timestep.h"
+#include "Event/IEvent.h"
 
 namespace dat
 {
@@ -18,7 +19,7 @@ namespace dat
 
 		virtual void onLayerRemoved() { }
 
-		virtual void onUpdate() { }
+		virtual void onUpdate(Timestep dt) { }
 
 		virtual void onRender() { }
 

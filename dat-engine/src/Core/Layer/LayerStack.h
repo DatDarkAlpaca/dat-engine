@@ -14,7 +14,7 @@ namespace dat
 		void addLayer(ILayer* layer);
 
 	public:
-		void onUpdate();
+		void onUpdate(Timestep dt);
 
 		void onRender();
 

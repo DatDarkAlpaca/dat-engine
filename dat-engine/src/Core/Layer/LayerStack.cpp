@@ -1,4 +1,5 @@
 #include "LayerStack.h"
+#include "Timestep.h"
 
 namespace dat
 {
@@ -15,10 +16,10 @@ namespace dat
 		layer->onLayerAdded();
 	}
 
-	void LayerStack::onUpdate()
+	void LayerStack::onUpdate(Timestep dt)
 	{
 		for (ILayer* layer : m_Layers)
-			layer->onUpdate();
+			layer->onUpdate(dt);
 	}
 
 	void LayerStack::onRender()
