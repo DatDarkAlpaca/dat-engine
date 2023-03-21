@@ -12,9 +12,9 @@ namespace dat
 		return glfwGetKey(s_Window->window(), (int)key);
 	}
 
-	int Input::isMouseButtonDown(const Key key)
+	int Input::isMouseButtonDown(const MouseButton mouseButton)
 	{
-		return glfwGetMouseButton(s_Window->window(), (int)key);
+		return glfwGetMouseButton(s_Window->window(), (int)mouseButton);
 	}
 
 	glm::vec2 Input::getMousePosition()

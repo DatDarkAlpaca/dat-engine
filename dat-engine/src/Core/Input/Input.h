@@ -12,7 +12,7 @@ namespace dat
 	public:
 		static int isKeyDown(const Key key);
 
-		static int isMouseButtonDown(const Key key);
+		static int isMouseButtonDown(const MouseButton mouseButton);
 
 		static glm::vec2 getMousePosition();
 
