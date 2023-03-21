@@ -7,14 +7,26 @@ namespace dat
 	class ResourceHolder
 	{
 	public:
-		void add(std::string_view resourceName, std::shared_ptr<Resource>&& resource)
+		std::shared_ptr<Resource> add(std::string_view resourceName, std::shared_ptr<Resource>&& resource)
 		{
-			m_Resources[resourceName] = resource;
+			m_Resources[resourceName] = std::move(resource);
+			return m_Resources[resourceName];
 		}
 
-		Resource* get(std::string_view resourceName)
+		std::shared_ptr<Resource> get(std::string_view resourceName)
 		{
-			return m_Resources[resourceName].get();
+			return m_Resources[resourceName];
+		}
+
+		void erase(std::string_view resourceName)
+		{
+			for (auto it = m_Resources.begin(); it != m_Resources.end();)
+			{
+				if (it->first == resourceName)
+					it = m_Resources.erase(it);
+				else
+					it++;
+			}
 		}
 
 	protected:

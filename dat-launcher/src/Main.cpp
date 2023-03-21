@@ -8,12 +8,11 @@ public:
 	Layer(DatApplication* application)
 		: ILayer(application), camera(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f)
 	{
-		m_Shaders.add("quad", std::make_shared<Shader>("res/quad_vertex.glsl", "res/quad_frag.glsl"));
-		Shader* shader = m_Shaders.get("quad");
+		auto shader = m_Shaders.add("quad", std::make_shared<Shader>("res/quad_vertex.glsl", "res/quad_frag.glsl"));
 	
 		m_Textures.add("texture", std::make_shared<Texture2D>("res/brick.jpg"));
-		
-		renderer = new QuadRenderer(shader);
+
+		renderer = new QuadRenderer(shader.get());
 	}
 
 public:
@@ -28,17 +27,8 @@ public:
 
 	void onRender() override
 	{
-		Texture2D* texture = m_Textures.get("texture");
-		renderer->drawQuad(*texture, { 100, 100 }, { 150.f, 150.f }, 0, { 0.1f, 0.4f, 0.7f });
-	}
-
-	void onEvent(IEvent& event) override
-	{
-		EventDispatcher di(event);
-		di.dispatch<MousePressedEvent>([&](MousePressedEvent& eve) {
-			DAT_CORE_CRITICAL("{}", debugMods(eve.mods));
-			return false;
-		});
+		auto texture = m_Textures.get("texture");
+		renderer->drawQuad(*texture.get(), {100, 100}, {150.f, 150.f}, 0, {0.1f, 0.4f, 0.7f});
 	}
 
 private:
