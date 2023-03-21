@@ -1,33 +1,15 @@
 #pragma once
 #include "pch.h"
+#include "ICamera.h"
 
 namespace dat
 {
-	class OrthoCamera
+	class DAT_API OrthoCamera : public ICamera
 	{
 	public:
-		OrthoCamera(float left, float right, float bottom, float top, float near = -1, float far = 1)
-		{
-			m_ProjectionMatrix = glm::ortho(left, right, bottom, top, near, far);
-		}
+		OrthoCamera(float left, float right, float bottom, float top, float near = -1, float far = 1);
 
 	public:
-		void computeViewMatrix()
-		{
-			m_ViewMatrix = glm::inverse(glm::translate(glm::mat4(1.0), m_CameraPosition));
-		}
-
-	public:
-		void setPosition(const glm::vec3& position) { m_CameraPosition = position; }
-
-		const glm::vec3& position() const { return m_CameraPosition; }
-
-		const glm::mat4& projection() const { return m_ProjectionMatrix; }
-
-		const glm::mat4& view() const { return m_ViewMatrix; }
-
-	private:
-		glm::mat4 m_ProjectionMatrix = glm::mat4(1.0), m_ViewMatrix = glm::mat4(1.0);
-		glm::vec3 m_CameraPosition = {0, 0, 0};
+		void onUpdate(Timestep dt) override;
 	};
 }
