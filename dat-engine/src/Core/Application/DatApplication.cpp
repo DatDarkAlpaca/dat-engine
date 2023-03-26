@@ -5,6 +5,9 @@
 #include "Graphics/GraphicAPI.h"
 #include "Event/EventsHeader.h"
 
+#include "Platform/TimestepGeneral.h"
+#include "Platform/Windows/TimestepWindows.h"
+
 namespace dat
 {
 	DatApplication::DatApplication(int width, int height, const char* title)
@@ -18,6 +21,8 @@ namespace dat
 		initializeLogger();
 
 		initializeGLFW();
+
+		m_TimestepHandler = getTimestepHandler();
 
 		m_Window.initialize();
 		m_Window.setEventCallback(std::bind(&DatApplication::onEvent, this, std::placeholders::_1));
@@ -36,15 +41,22 @@ namespace dat
 
 	void DatApplication::run()
 	{
+		static double t = 0;
+
 		while (!m_Window.isClosed())
 		{
-			double time = glfwGetTime();
-			Timestep dt(time - m_LastTime);
-			m_LastTime = time;
-
+			Timestep dt = m_TimestepHandler->restart();
+			
 			m_LayerStack.onUpdate(dt);
-
+			
 			onRender();
+
+			t += dt.timestep();
+			if (t >= 0.5)
+			{
+				DAT_CORE_CRITICAL("{} FPS", 1 / dt.m_Timestep);
+				t = 0;
+			}
 		}
 
 		shutdown();
@@ -53,6 +65,8 @@ namespace dat
 	void DatApplication::onEvent(IEvent& event)
 	{
 		EventDispatcher dispatcher(event);
+		static bool isWindowsTimer = true;
+
 
 		dispatcher.dispatch<WindowCloseEvent>([](WindowCloseEvent& closeEvent) -> bool {
 			return true;
@@ -60,6 +74,26 @@ namespace dat
 
 		dispatcher.dispatch<WindowResizeEvent>([](WindowResizeEvent& resizeEvent) -> bool {
 			glViewport(0, 0, resizeEvent.width, resizeEvent.height);
+			return true;
+		});
+
+		dispatcher.dispatch<KeyPressedEvent>([&](KeyPressedEvent& pressEvent) -> bool {
+			if (pressEvent.key == Key::KEY_T)
+			{
+				if (!isWindowsTimer)
+				{
+					m_TimestepHandler = new TimestepWindows();
+					DAT_CORE_INFO("switched to windows timestep handler.");
+				}
+				else
+				{
+					m_TimestepHandler = new TimestepGeneral();
+					DAT_CORE_INFO("switched to chronos timestep handler.");
+				}
+				
+				isWindowsTimer = !isWindowsTimer;
+			}
+			 
 			return true;
 		});
 
