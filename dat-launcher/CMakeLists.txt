@@ -8,18 +8,6 @@ target_link_directories(${TARGET_NAME} PUBLIC dat-engine)
 
 target_link_libraries (${TARGET_NAME} dat-engine)
 
-if (WIN32)
-    target_compile_definitions (${TARGET_NAME} PRIVATE DAT_WINDOWS_PLATFORM)
-endif()
-
-if (APPLE)
-    target_compile_definitions (${TARGET_NAME} PRIVATE DAT_MAC_PLATFORM)
-endif()
-
-if (UNIX AND NOT APPLE)
-    target_compile_definitions (${TARGET_NAME} PRIVATE DAT_LINUX_PLATFORM)
-endif()
-
 target_compile_definitions (${TARGET_NAME} PRIVATE DAT_IMPORT)
 
 add_custom_target(copy-resources ALL DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/res)
