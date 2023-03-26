@@ -11,9 +11,5 @@ namespace dat
 			using namespace std::chrono;
 			return duration_cast<duration<double>>(high_resolution_clock::now().time_since_epoch()).count();
 		}
-
-	public:
-		double m_Frequency = 0;
-		std::int64_t m_CounterStart = 0;
 	};
 }
