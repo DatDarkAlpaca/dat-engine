@@ -26,3 +26,5 @@
 #include "Resource/ResourceHolder.h"
 
 #include "Input/Input.h"
+
+#include "Memory/MemoryTypes.h"
