@@ -34,8 +34,6 @@ namespace dat
 	private:
 		LayerStack m_LayerStack;
 		Window m_Window;
-
-	private:
-		ITimestepHandler* m_TimestepHandler;
+		dat_unique<ITimestepHandler> m_TimestepHandler;
 	};
 }

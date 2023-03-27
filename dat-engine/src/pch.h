@@ -14,5 +14,6 @@
 #include <memory>
 #include <string>
 
-#include "Utils/Logger.h"
 #include "API.h"
+#include "Utils/Logger.h"
+#include "Memory/MemoryTypes.h"

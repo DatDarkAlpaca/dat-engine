@@ -7,13 +7,13 @@ namespace dat
 	class ResourceHolder
 	{
 	public:
-		std::shared_ptr<Resource> add(std::string_view resourceName, std::shared_ptr<Resource>&& resource)
+		dat_shared<Resource> add(std::string_view resourceName, dat_shared<Resource>&& resource)
 		{
 			m_Resources[resourceName] = std::move(resource);
 			return m_Resources[resourceName];
 		}
 
-		std::shared_ptr<Resource> get(std::string_view resourceName)
+		dat_shared<Resource> get(std::string_view resourceName)
 		{
 			return m_Resources[resourceName];
 		}
@@ -30,6 +30,6 @@ namespace dat
 		}
 
 	protected:
-		std::unordered_map<std::string_view, std::shared_ptr<Resource>> m_Resources;
+		std::unordered_map<std::string_view, dat_shared<Resource>> m_Resources;
 	};
 }

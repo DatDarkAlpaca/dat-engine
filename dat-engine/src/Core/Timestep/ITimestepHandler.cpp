@@ -4,12 +4,12 @@
 
 namespace dat
 {
-	ITimestepHandler* getTimestepHandler()
+	dat_unique<ITimestepHandler> getTimestepHandler()
 	{
 #ifdef DAT_PLATFORM_WINDOWS
-		return new TimestepWindows();
+		return std::make_unique<TimestepWindows>();
 #else
-		return new TimestepGeneral();
+		return std::make_unique<TimestepGeneral>();
 #endif
 	}
 }

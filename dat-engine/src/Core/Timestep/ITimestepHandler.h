@@ -25,5 +25,5 @@ namespace dat
 		double m_LastTime = 0;
 	};
 
-	ITimestepHandler* getTimestepHandler();
+	dat_unique<ITimestepHandler> getTimestepHandler();
 }
