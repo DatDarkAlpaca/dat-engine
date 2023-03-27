@@ -6,7 +6,7 @@ namespace dat
 {
 	ITimestepHandler* getTimestepHandler()
 	{
-#ifdef DAT_WINDOWS_PLATFORM
+#ifdef DAT_PLATFORM_WINDOWS
 		return new TimestepWindows();
 #else
 		return new TimestepGeneral();

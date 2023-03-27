@@ -38,13 +38,13 @@ target_link_libraries(${TARGET_NAME}
 
 # Platform Detection:
 if (WIN32)
-    target_compile_definitions (${TARGET_NAME} PUBLIC DAT_WINDOWS_PLATFORM)
+    target_compile_definitions (${TARGET_NAME} PUBLIC DAT_PLATFORM_WINDOWS)
 
 elseif (APPLE)
-    target_compile_definitions (${TARGET_NAME} PUBLIC DAT_MAC_PLATFORM)
+    target_compile_definitions (${TARGET_NAME} PUBLIC DAT_PLATFORM_MAC)
 
 elseif (UNIX AND NOT APPLE)
-    target_compile_definitions (${TARGET_NAME} PUBLIC DAT_LINUX_PLATFORM)
+    target_compile_definitions (${TARGET_NAME} PUBLIC DAT_PLATFORM_LINUX)
 endif()
 
 target_precompile_headers(${TARGET_NAME} PUBLIC "src/pch.h")
