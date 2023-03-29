@@ -55,24 +55,7 @@ struct PlayerInput
 {
 	void onEvent(IEvent& event)
 	{
-		EventDispatcher dispatcher(event);
-		dispatcher.dispatch<KeyPressedEvent>([&](KeyPressedEvent& keyEvent) {
-			if (keyEvent.key == GLFW_KEY_SPACE)
-				spacePressed = true;
-			return true;
-		});
-
-		dispatcher.dispatch<KeyRepeatEvent>([&](KeyRepeatEvent& keyEvent) {
-			if (keyEvent.key == GLFW_KEY_SPACE)
-				spacePressed = true;
-			return true;
-		});
-
-		dispatcher.dispatch<KeyReleasedEvent>([&](KeyReleasedEvent& keyEvent) {
-			if (keyEvent.key == GLFW_KEY_SPACE)
-				spacePressed = false;
-			return true;
-		});
+		spacePressed = Input::isKeyDown(KEY_SPACE);
 	}
 
 	bool spacePressed = false;
