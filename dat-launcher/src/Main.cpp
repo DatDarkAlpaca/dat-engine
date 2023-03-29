@@ -21,14 +21,7 @@ public:
 	void onRender() override
 	{
 		Renderer2D::beginScene(*m_Camera);
-		
-		for (unsigned int x = 0; x < 10; ++x)
-		{
-			for (unsigned int y = 0; y < 10; ++y)
-			{
-				Renderer2D::submitQuad({ x * 150.f, y * 150.f }, { 150.f, 150.f }, 0.f, texture);
-			}
-		}
+		Renderer2D::submitQuad({ 100.f, 100.f }, { 150.f, 150.f }, { 0.6f, 0.45f, 0.6f, 1.f }, 45.f, texture);
 	}
 
 private:

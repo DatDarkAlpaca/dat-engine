@@ -37,10 +37,10 @@ namespace dat
 		s_Descriptor.quadVAO->bind();
 		
 		VertexBuffer vbo({
-			-0.5f, -0.5f, 0.0f, 1.0, 1.0, 1.0, 1.0, 0.0f, 0.0f,
-			 0.5f, -0.5f, 0.0f, 1.0, 1.0, 1.0, 1.0, 1.0f, 0.0f,
-			 0.5f,  0.5f, 0.0f, 1.0, 1.0, 1.0, 1.0, 1.0f, 1.0f,
-			-0.5f,  0.5f, 0.0f, 1.0, 1.0, 1.0, 1.0, 0.0f, 1.0f,
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f,
 		});
 
 		IndexBuffer ibo({
@@ -50,8 +50,7 @@ namespace dat
 		{
 			VertexAttributes attributes;
 			attributes.addAttribute(0, 3, AttributeType::FLOAT, false); // Position
-			attributes.addAttribute(1, 4, AttributeType::FLOAT, false); // Color
-			attributes.addAttribute(2, 2, AttributeType::FLOAT, false); // UVs
+			attributes.addAttribute(1, 2, AttributeType::FLOAT, false); // UVs
 			s_Descriptor.quadVAO->enableAttributes(attributes);
 		}
 
@@ -71,7 +70,7 @@ namespace dat
 	}
 
 	// Flat Quad:
-	void Renderer2D::submitQuad(const glm::vec3& position, const glm::vec2& size, float rotation)
+	void Renderer2D::submitQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color, float rotation)
 	{
 		s_Descriptor.flatQuadShader->bind();
 
@@ -81,18 +80,19 @@ namespace dat
 		model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.f, 0.f, 1.f));
 
 		s_Descriptor.flatQuadShader->setMatrix4f("u_model", model);
+		s_Descriptor.flatQuadShader->setVector4f("u_color", color);
 
 		s_Descriptor.quadVAO->bind();
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer2D::submitQuad(const glm::vec2& position, const glm::vec2& size, float rotation)
+	void Renderer2D::submitQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color, float rotation)
 	{
-		submitQuad(glm::vec3(position, 0.0), size, rotation);
+		submitQuad(glm::vec3(position, 0.0), size, color, rotation);
 	}
 
 	// Textured Quad:
-	void Renderer2D::submitQuad(const glm::vec3& position, const glm::vec2& size, float rotation, dat_shared<Texture2D> texture)
+	void Renderer2D::submitQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color, float rotation, dat_shared<Texture2D> texture)
 	{
 		s_Descriptor.texturedQuadShader->bind();
 		
@@ -102,14 +102,15 @@ namespace dat
 		model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.f, 0.f, 1.f));
 
 		s_Descriptor.texturedQuadShader->setMatrix4f("u_model", model);
+		s_Descriptor.flatQuadShader->setVector4f("u_color", color);
 		
 		texture->bind(0);
 		s_Descriptor.quadVAO->bind();
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer2D::submitQuad(const glm::vec2& position, const glm::vec2& size, float rotation, dat_shared<Texture2D> texture)
+	void Renderer2D::submitQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color, float rotation, dat_shared<Texture2D> texture)
 	{
-		submitQuad(glm::vec3(position, 0.0), size, rotation, texture);
+		submitQuad(glm::vec3(position, 0.0), size, color, rotation, texture);
 	}
 }
