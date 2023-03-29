@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <functional>
 #include <algorithm>
+#include <optional>
 #include <numeric>
 #include <vector>
 #include <chrono>
