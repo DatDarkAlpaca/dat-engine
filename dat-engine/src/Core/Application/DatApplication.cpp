@@ -2,7 +2,7 @@
 #include "Input/Input.h"
 #include "Utils/Logger.h"
 #include "DatApplication.h"
-#include "Graphics/GraphicAPI.h"
+#include "Graphics/OpenGL/GraphicsAPI.h"
 #include "Event/EventsHeader.h"
 
 namespace dat

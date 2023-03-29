@@ -1,7 +1,7 @@
 #pragma once
 #include "API.h"
-#include "Graphics/Shader.h"
-#include "Graphics/VertexArray.h"
+#include "Graphics/OpenGL/Shader.h"
+#include "Graphics/OpenGL/VertexArray.h"
 
 namespace dat
 {

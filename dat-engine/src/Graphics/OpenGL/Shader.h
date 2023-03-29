@@ -7,7 +7,7 @@ namespace dat
 	{
 	public:
 		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
-		Shader() = default;
+
 		~Shader();
 
 	public:

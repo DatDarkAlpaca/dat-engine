@@ -4,12 +4,12 @@
 #include "Application/DatApplication.h"
 #include "Application/ApplicationStatus.h"
 
-#include "Graphics/Shader.h"
-#include "Graphics/Texture2d.h"
-#include "Graphics/VertexArray.h"
-#include "Graphics/VertexBuffer.h"
-#include "Graphics/IndexBuffer.h"
-#include "Graphics/VertexAttributes.h"
+#include "Graphics/OpenGL/Shader.h"
+#include "Graphics/OpenGL/Texture2d.h"
+#include "Graphics/OpenGL/VertexArray.h"
+#include "Graphics/OpenGL/VertexBuffer.h"
+#include "Graphics/OpenGL/IndexBuffer.h"
+#include "Graphics/OpenGL/VertexAttributes.h"
 
 #include "Utils/FileReader.h"
 #include "Utils/Logger.h"

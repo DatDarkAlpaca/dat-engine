@@ -1,5 +1,5 @@
 #pragma once
-#include "Graphics/Shader.h"
+#include "Graphics/OpenGL/Shader.h"
 
 namespace dat
 {
