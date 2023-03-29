@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Window/Window.h"
-#include "Application/DatApplication.h"
-#include "Application/ApplicationStatus.h"
+#include "Core/Application/DatApplication.h"
+#include "Core/Application/ApplicationStatus.h"
+#include "Core/Window/Window.h"
 
 #include "Graphics/OpenGL/Shader.h"
 #include "Graphics/OpenGL/Texture2d.h"
@@ -11,20 +11,18 @@
 #include "Graphics/OpenGL/IndexBuffer.h"
 #include "Graphics/OpenGL/VertexAttributes.h"
 
-#include "Utils/FileReader.h"
-#include "Utils/Logger.h"
-#include "Utils/Timer.h"
+#include "Graphics/Camera/CameraHeaders.h"
 
-#include "Event/EventsHeader.h"
+#include "Utils/Timer.h"
+#include "Utils/Logger.h"
+#include "Utils/FileReader.h"
 
 #include "Layer/ILayer.h"
 #include "Layer/LayerStack.h"
 
-#include "Graphics/Camera/CameraHeaders.h"
-#include "QuadRenderer.h"
-
 #include "Resource/ResourceHolder.h"
-
+#include "Memory/MemoryTypes.h"
+#include "Event/EventsHeader.h"
 #include "Input/Input.h"
 
-#include "Memory/MemoryTypes.h"
+#include "QuadRenderer.h"

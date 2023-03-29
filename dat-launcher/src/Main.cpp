@@ -111,6 +111,10 @@ public:
 	void onEvent(IEvent& event) override
 	{
 		camera.onEvent(event);
+		EventDispatcher d(event);
+		d.dispatch<KeyPressedEvent>([](KeyPressedEvent& event) -> bool {
+			return false;
+		});
 	}
 
 private:

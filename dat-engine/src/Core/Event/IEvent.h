@@ -6,7 +6,7 @@
 
 namespace dat
 {
-	class DAT_API IEvent
+	class IEvent
 	{
 		friend class EventDispatcher;
 
