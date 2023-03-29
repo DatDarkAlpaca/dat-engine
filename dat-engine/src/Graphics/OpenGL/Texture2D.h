@@ -11,7 +11,7 @@ namespace dat
 		~Texture2D();
 
 	public:
-		void bind() const;
+		void bind(unsigned int slot = 0) const;
 
 		void unbind() const;
 

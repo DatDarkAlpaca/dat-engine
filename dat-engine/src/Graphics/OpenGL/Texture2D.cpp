@@ -58,8 +58,9 @@ namespace dat
 		glDeleteTextures(1, &m_ID);
 	}
 
-	void Texture2D::bind() const
+	void Texture2D::bind(unsigned int slot) const
 	{
+		glActiveTexture(GL_TEXTURE0 + slot);
 		glBindTexture(GL_TEXTURE_2D, m_ID);
 	}
 

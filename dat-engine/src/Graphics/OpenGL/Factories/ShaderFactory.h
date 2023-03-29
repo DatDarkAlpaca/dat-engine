@@ -32,36 +32,36 @@ namespace
 		return shader;
 	}
 
-	inline void checkCompileErrors(unsigned int object, unsigned int type)
+	inline void checkCompileErrors(unsigned int shader, unsigned int type)
 	{
 		int success;
 		char infoLog[1024];
 
-		glGetShaderiv(object, GL_COMPILE_STATUS, &success);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
 		if (!success)
 		{
-			glGetShaderInfoLog(object, 512, NULL, infoLog);
+			glGetShaderInfoLog(shader, 1024, NULL, infoLog);
 
 			DAT_CORE_ERROR("{} Shader Error:\n{}", shaderTypeStr(type), infoLog);
 
-			glDeleteShader(object);
+			glDeleteShader(shader);
 		}
 	}
 
-	inline void checkLinkErrors(unsigned int object)
+	inline void checkLinkErrors(unsigned int program)
 	{
 		int success;
 		char infoLog[1024];
 
-		glGetProgramiv(object, GL_LINK_STATUS, &success);
+		glGetProgramiv(program, GL_LINK_STATUS, &success);
 
 		if (!success)
 		{
-			glGetProgramInfoLog(object, 1024, nullptr, infoLog);
+			glGetProgramInfoLog(program, 1024, nullptr, infoLog);
 			DAT_CORE_ERROR("Linking Error:\n{}", infoLog);
 
-			glDeleteProgram(object);
+			glDeleteProgram(program);
 		}
 	}
 }

@@ -12,6 +12,7 @@
 #include "Graphics/OpenGL/VertexAttributes.h"
 
 #include "Graphics/Camera/CameraHeaders.h"
+#include "Graphics/Renderer/Renderer2D.h"
 
 #include "Utils/Timer.h"
 #include "Utils/Logger.h"
@@ -24,5 +25,3 @@
 #include "Memory/MemoryTypes.h"
 #include "Event/EventsHeader.h"
 #include "Input/Input.h"
-
-#include "QuadRenderer.h"

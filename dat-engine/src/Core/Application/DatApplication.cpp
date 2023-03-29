@@ -2,8 +2,10 @@
 #include "Input/Input.h"
 #include "Utils/Logger.h"
 #include "DatApplication.h"
-#include "Graphics/OpenGL/GraphicsAPI.h"
 #include "Event/EventsHeader.h"
+
+#include "Graphics/OpenGL/GraphicsAPI.h"
+#include "Graphics/Renderer/Renderer2D.h"
 
 namespace dat
 {
@@ -19,14 +21,16 @@ namespace dat
 
 		initializeGLFW();
 
-		m_TimestepHandler = getTimestepHandler();
-
 		m_Window.initialize();
 		m_Window.setEventCallback(std::bind(&DatApplication::onEvent, this, std::placeholders::_1));
 
+		initializeGLEW();
+
 		Input::initialize(&m_Window);
 
-		initializeGLEW();
+		m_TimestepHandler = getTimestepHandler();
+
+		Renderer2D::initialize();
 	}
 
 	void DatApplication::shutdown()
