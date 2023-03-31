@@ -6,7 +6,7 @@ namespace dat
 	class DAT_API Shader
 	{
 	public:
-		Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
+		Shader(unsigned int id);
 
 		~Shader();
 
@@ -16,6 +16,9 @@ namespace dat
 		void unbind() const;
 
 		void deleteProgram() const;
+
+	public:
+		unsigned int getUniform(const std::string& uniformName) const;
 
 	public:
 		void setFloat(const char* name, float value);
@@ -31,6 +34,7 @@ namespace dat
 		void setMatrix4f(const char* name, glm::mat4 matrix);
 
 	public:
+		std::unordered_map<std::string, unsigned int> m_Uniforms;
 		unsigned int m_ID = 0;
 	};
 }

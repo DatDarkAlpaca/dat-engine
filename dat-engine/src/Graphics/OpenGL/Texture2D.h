@@ -8,6 +8,7 @@ namespace dat
 	{
 	public:
 		Texture2D(const char* texturePath, const TextureProperties& properties = {});
+		
 		~Texture2D();
 
 	public:

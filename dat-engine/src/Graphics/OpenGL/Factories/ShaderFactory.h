@@ -1,5 +1,7 @@
 #pragma once
 #include "pch.h"
+#include "Graphics/OpenGL/Shader.h"
+#include "Utils/FileReader.h"
 
 namespace
 {
@@ -66,25 +68,28 @@ namespace
 	}
 }
 
-inline unsigned int createShader(const char* vertexShaderPath, const char* fragmentShaderPath)
+namespace dat
 {
-	unsigned int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER);
-	checkCompileErrors(vertexShader, GL_VERTEX_SHADER);
+	inline unsigned int createShader(const char* vertexShaderPath, const char* fragmentShaderPath)
+	{
+		unsigned int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER);
+		checkCompileErrors(vertexShader, GL_VERTEX_SHADER);
 
-	unsigned int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
-	checkCompileErrors(fragmentShader, GL_FRAGMENT_SHADER);
+		unsigned int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
+		checkCompileErrors(fragmentShader, GL_FRAGMENT_SHADER);
 
-	unsigned int program = glCreateProgram();
-	glAttachShader(program, vertexShader);
-	glAttachShader(program, fragmentShader);
+		unsigned int program = glCreateProgram();
+		glAttachShader(program, vertexShader);
+		glAttachShader(program, fragmentShader);
 
-	glLinkProgram(program);
-	glValidateProgram(program);
+		glLinkProgram(program);
+		glValidateProgram(program);
 
-	checkLinkErrors(program);
+		checkLinkErrors(program);
 
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+		glDeleteShader(vertexShader);
+		glDeleteShader(fragmentShader);
 
-	return program;
+		return program;
+	}
 }

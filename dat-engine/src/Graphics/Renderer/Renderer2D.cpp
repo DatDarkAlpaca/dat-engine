@@ -4,6 +4,7 @@
 #include "Graphics/OpenGL/IndexBuffer.h"
 #include "Graphics/OpenGL/VertexArray.h"
 #include "Graphics/OpenGL/VertexBuffer.h"
+#include "Graphics/OpenGL/Factories/ShaderFactory.h"
 
 namespace dat
 {
@@ -20,15 +21,16 @@ namespace dat
 	void Renderer2D::initialize()
 	{
 		// Quad Shader:
-		s_Descriptor.flatQuadShader = std::make_unique<Shader>(
+		s_Descriptor.flatQuadShader = std::make_unique<Shader>(createShader(
 			"res/shader/flat_quad_vert.glsl",
 			"res/shader/flat_quad_frag.glsl"
-		);
+		));
 
-		s_Descriptor.texturedQuadShader = std::make_unique<Shader>(
+		s_Descriptor.texturedQuadShader = std::make_unique<Shader>(createShader(
 			"res/shader/textured_quad_vert.glsl",
 			"res/shader/textured_quad_frag.glsl"
-		);
+		));
+
 		s_Descriptor.texturedQuadShader->bind();
 		s_Descriptor.texturedQuadShader->setInteger("u_texture", 0);
 
