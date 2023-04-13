@@ -5,6 +5,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <spdlog/spdlog.h>
+#include <entt/entt.hpp>
+
 #include <unordered_map>
 #include <functional>
 #include <algorithm>
