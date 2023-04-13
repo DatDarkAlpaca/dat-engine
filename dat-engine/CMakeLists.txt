@@ -12,6 +12,7 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 add_library (${TARGET_NAME} SHARED ${SOURCE_FILES} ${HEADER_FILES})
 
 # Vendor Includes:
+add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/entt" "vendor/entt")
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/glew-cmake" "vendor/glew-cmake")
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/glfw" "vendor/glfw")
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/glm" "vendor/glm")
@@ -26,6 +27,7 @@ target_include_directories(${TARGET_NAME}
 		glfw
 		libglew_static
 		spdlog
+		EnTT::EnTT
 )
 
 target_link_libraries(${TARGET_NAME}
@@ -34,6 +36,7 @@ target_link_libraries(${TARGET_NAME}
 		glfw	
 		libglew_static
 		spdlog
+		EnTT::EnTT
 )
 
 # Platform Detection:
