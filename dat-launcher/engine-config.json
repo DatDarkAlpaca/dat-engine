@@ -1,0 +1,43 @@
+{
+    "appSpecification": {
+        "name": "DatLauncher",
+        "versionMajor": 1,
+        "versionMinor": 0,
+        "versionPatch": 0,
+        "versionVariant": 0
+    },
+    "windowProperties": {
+        "windowTitle": "DatEngine v1.0",
+        "dimensions": {
+            "x": 800,
+            "y": 600
+        },
+        "position": {
+            "x": -1,
+            "y": -1
+        },
+        "minSize": {
+            "x": 400,
+            "y": 300
+        },
+        "maxSize": {
+            "x": 10000,
+            "y": 10000
+        }
+    },
+    "graphicsSpecification": {
+        "api": "OPENGL",
+        "major": 4,
+        "minor": 5,
+        "patch": 0,
+        "variant": 0
+    },
+    "Vulkan": {
+        "layers": [],
+        "extensions": [],
+        "enablePresentation": true,
+        "addValidationLayer": false,
+        "addDebugExtensions": false,
+        "useDebugMessenger": false
+    }
+}

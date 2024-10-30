@@ -1,15 +1,31 @@
+[submodule "vendor/entt"]
+	path = vendor/entt
+	url = https://github.com/skypjack/entt
+[submodule "vendor/glad"]
+	path = vendor/glad
+	url = https://github.com/premake-libs/glad
 [submodule "vendor/glfw"]
 	path = vendor/glfw
 	url = https://github.com/glfw/glfw
 [submodule "vendor/glm"]
 	path = vendor/glm
 	url = https://github.com/g-truc/glm
+[submodule "vendor/json"]
+	path = vendor/json
+	url = https://github.com/nlohmann/json
 [submodule "vendor/stb"]
 	path = vendor/stb
 	url = https://github.com/nothings/stb
-[submodule "vendor/glew-cmake"]
-	path = vendor/glew-cmake
-	url = https://github.com/Perlmint/glew-cmake
 [submodule "vendor/spdlog"]
 	path = vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "vendor/imgui"]
+	path = vendor/imgui
+	url = https://github.com/ocornut/imgui
+	branch = docking
+[submodule "vendor/vma"]
+	path = vendor/vma
+	url = https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
+[submodule "vendor/Vulkan-Headers"]
+	path = vendor/Vulkan-Headers
+	url = https://github.com/KhronosGroup/Vulkan-Headers

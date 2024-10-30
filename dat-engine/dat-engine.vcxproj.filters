@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Assert">
+      <UniqueIdentifier>{0FBB976A-7B70-1060-0465-0A3770190764}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event">
+      <UniqueIdentifier>{FF1F37CD-EBD7-781A-54DF-517640B6130B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event\KeyboardEvents">
+      <UniqueIdentifier>{14132094-80D5-531E-C985-E2AA35872CFC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event\MouseEvents">
+      <UniqueIdentifier>{4C705E2A-386A-877C-21D7-1D8D0D70EDE8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event\WindowEvents">
+      <UniqueIdentifier>{FB484122-6780-89B9-708A-EDDCDC40B0B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Logger">
+      <UniqueIdentifier>{3D8AF183-A93F-6A79-3234-64509EE8607D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Memory">
+      <UniqueIdentifier>{D62B9585-42E1-0D7B-CBD5-0752378A047F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Scene">
+      <UniqueIdentifier>{CB0B2ACE-B7C3-6B1B-20CB-44770CA2060C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Worker">
+      <UniqueIdentifier>{5762A09D-C317-1993-4C0C-136AB8C00F97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{1653CE33-0220-293F-2B39-17E717655ECD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\GLFW">
+      <UniqueIdentifier>{A98C9061-154D-0C98-DE87-55154A075174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\GLFW\OpenGL">
+      <UniqueIdentifier>{BD3DCDD9-A9CC-56A3-52EB-6A9E3E596749}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\GLFW\Vulkan">
+      <UniqueIdentifier>{09A27FEA-F530-09B4-9E4F-1DAF8ABD195A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\GLFW\Window">
+      <UniqueIdentifier>{70A1FCEB-5C30-86B5-054F-9AB0F1BC965B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{F68B420E-62A0-6ABF-2B22-0E1F97F566F0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Common.hpp" />
+    <ClInclude Include="src\Core\Assert\Assert.hpp">
+      <Filter>Core\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Defines.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\Event.hpp">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\EventType.hpp">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\Events.hpp">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyPressedEvent.hpp">
+      <Filter>Core\Event\KeyboardEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyReleasedEvent.hpp">
+      <Filter>Core\Event\KeyboardEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyRepeatEvent.hpp">
+      <Filter>Core\Event\KeyboardEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyboardEvent.hpp">
+      <Filter>Core\Event\KeyboardEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseEvent.hpp">
+      <Filter>Core\Event\MouseEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseMovedEvent.hpp">
+      <Filter>Core\Event\MouseEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\MouseEvents\MousePressedEvent.hpp">
+      <Filter>Core\Event\MouseEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseReleasedEvent.hpp">
+      <Filter>Core\Event\MouseEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseScrollEvent.hpp">
+      <Filter>Core\Event\MouseEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\Subscriber.hpp">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowCloseEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowContentScaleEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowFocusEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowFramebufferEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowMaximizedEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowMovedEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowResizeEvent.hpp">
+      <Filter>Core\Event\WindowEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Logger\Logger.hpp">
+      <Filter>Core\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Memory\Memory.hpp">
+      <Filter>Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\NonCopyable.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Scene\CommonComponents.hpp">
+      <Filter>Core\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Scene\Entity.hpp">
+      <Filter>Core\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Scene\Scene.hpp">
+      <Filter>Core\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DatEngine.hpp" />
+    <ClInclude Include="src\Graphics\GraphicsAPI.hpp">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\GraphicsSpecification.hpp">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Events_GLFW.hpp">
+      <Filter>Platform\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\OpenGL\SetupOpenGL.hpp">
+      <Filter>Platform\GLFW\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Setup_GLFW.hpp">
+      <Filter>Platform\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Vulkan\SetupVulkan.hpp">
+      <Filter>Platform\GLFW\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Window\MonitorData.hpp">
+      <Filter>Platform\GLFW\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Window\Monitor_GLFW.hpp">
+      <Filter>Platform\GLFW\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Window\WindowProperties.hpp">
+      <Filter>Platform\GLFW\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\Window\Window_GLFW.hpp">
+      <Filter>Platform\GLFW\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Platform.hpp">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\File.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\Timer.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pch.hpp" />
+    <ClInclude Include="src\Utils\UUID.hpp" />
+    <ClInclude Include="src\Utils\Random.hpp" />
+    <ClInclude Include="src\Core\Engine\Engine.hpp" />
+    <ClInclude Include="src\Core\View\ViewSystem.hpp" />
+    <ClInclude Include="src\Core\View\View.hpp" />
+    <ClInclude Include="src\Core\Engine\AppSpecification.hpp" />
+    <ClInclude Include="src\Core\Assets\TextureLoader.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetHandle.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetLibrary.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetMetadata.hpp" />
+    <ClInclude Include="src\Core\Assets\Assets.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetType.hpp" />
+    <ClInclude Include="src\Core\Assets\TextureAsset.hpp" />
+    <ClInclude Include="src\Core\Buffer\Buffer.hpp" />
+    <ClInclude Include="src\Core\Config\JsonReader.hpp" />
+    <ClInclude Include="src\Core\Config\ConfigData.hpp" />
+    <ClInclude Include="src\Graphics\GraphicsSystem.hpp" />
+    <ClInclude Include="src\Utils\JSON\JsonCommon.hpp" />
+    <ClInclude Include="src\Core\Worker\WorkerPool.hpp" />
+    <ClInclude Include="src\Utils\JSON\JsonFile.hpp" />
+    <ClInclude Include="src\Entry.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\Logger\Logger.cpp">
+      <Filter>Core\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Scene\Scene.cpp">
+      <Filter>Core\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\stb.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\GLFW\OpenGL\SetupOpenGL.cpp">
+      <Filter>Platform\GLFW\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\GLFW\Vulkan\SetupVulkan.cpp">
+      <Filter>Platform\GLFW\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\GLFW\Window\Window_GLFW.cpp">
+      <Filter>Platform\GLFW\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Core\View\View.cpp" />
+    <ClCompile Include="src\Core\View\ViewSystem.cpp" />
+    <ClCompile Include="src\Core\Engine\Engine.cpp" />
+    <ClCompile Include="src\Core\Assets\TextureLoader.cpp" />
+    <ClCompile Include="src\Core\Worker\WorkerPool.cpp" />
+  </ItemGroup>
+</Project>

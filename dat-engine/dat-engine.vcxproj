@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A15C6076-8D14-A2C3-F61B-7B1FE2F23CB4}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>dat-engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\build\bin\Debug-windows-x86_64\dat-engine\</OutDir>
+    <IntDir>..\build\intermediate\Debug-windows-x86_64\dat-engine\</IntDir>
+    <TargetName>dat-engine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\build\bin\Release-windows-x86_64\dat-engine\</OutDir>
+    <IntDir>..\build\intermediate\Release-windows-x86_64\dat-engine\</IntDir>
+    <TargetName>dat-engine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.hpp</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>DAT_PLATFORM_WINDOWS;GLFW_INCLUDE_VULKAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;src;..\vendor\json\single_include;..\vendor\imgui;..\vendor\glad\include;..\vendor\spdlog\include;..\vendor\VulkanMemoryAllocator\include;..\vendor\glm;..\vendor\stb;..\vendor\Vulkan-Headers\include;..\vendor\entt\single_include;..\vendor\glfw\include;..\vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>vulkan-1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\VulkanSDK\1.3.261.0\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.hpp</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>DAT_PLATFORM_WINDOWS;GLFW_INCLUDE_VULKAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;src;..\vendor\json\single_include;..\vendor\imgui;..\vendor\glad\include;..\vendor\spdlog\include;..\vendor\VulkanMemoryAllocator\include;..\vendor\glm;..\vendor\stb;..\vendor\Vulkan-Headers\include;..\vendor\entt\single_include;..\vendor\glfw\include;..\vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>vulkan-1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\VulkanSDK\1.3.261.0\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Core\Assets\AssetHandle.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetLibrary.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetMetadata.hpp" />
+    <ClInclude Include="src\Core\Assets\Assets.hpp" />
+    <ClInclude Include="src\Core\Assets\AssetType.hpp" />
+    <ClInclude Include="src\Core\Assets\TextureAsset.hpp" />
+    <ClInclude Include="src\Core\Assets\TextureLoader.hpp" />
+    <ClInclude Include="src\Common.hpp" />
+    <ClInclude Include="src\Core\Assert\Assert.hpp" />
+    <ClInclude Include="src\Core\Buffer\Buffer.hpp" />
+    <ClInclude Include="src\Core\Config\ConfigData.hpp" />
+    <ClInclude Include="src\Core\Config\JsonReader.hpp" />
+    <ClInclude Include="src\Core\Defines.hpp" />
+    <ClInclude Include="src\Core\Engine\AppSpecification.hpp" />
+    <ClInclude Include="src\Core\Event\Event.hpp" />
+    <ClInclude Include="src\Core\Event\EventType.hpp" />
+    <ClInclude Include="src\Core\Event\Events.hpp" />
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyPressedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyReleasedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyRepeatEvent.hpp" />
+    <ClInclude Include="src\Core\Event\KeyboardEvents\KeyboardEvent.hpp" />
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseEvent.hpp" />
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseMovedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\MouseEvents\MousePressedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseReleasedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\MouseEvents\MouseScrollEvent.hpp" />
+    <ClInclude Include="src\Core\Event\Subscriber.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowCloseEvent.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowContentScaleEvent.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowFocusEvent.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowFramebufferEvent.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowMaximizedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowMovedEvent.hpp" />
+    <ClInclude Include="src\Core\Event\WindowEvents\WindowResizeEvent.hpp" />
+    <ClInclude Include="src\Core\Logger\Logger.hpp" />
+    <ClInclude Include="src\Core\Memory\Memory.hpp" />
+    <ClInclude Include="src\Core\NonCopyable.hpp" />
+    <ClInclude Include="src\Core\Scene\CommonComponents.hpp" />
+    <ClInclude Include="src\Core\Scene\Entity.hpp" />
+    <ClInclude Include="src\Core\Scene\Scene.hpp" />
+    <ClInclude Include="src\Core\Worker\WorkerPool.hpp" />
+    <ClInclude Include="src\DatEngine.hpp" />
+    <ClInclude Include="src\Core\Engine\Engine.hpp" />
+    <ClInclude Include="src\Entry.hpp" />
+    <ClInclude Include="src\Graphics\GraphicsAPI.hpp" />
+    <ClInclude Include="src\Graphics\GraphicsSpecification.hpp" />
+    <ClInclude Include="src\Graphics\GraphicsSystem.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Events_GLFW.hpp" />
+    <ClInclude Include="src\Platform\GLFW\OpenGL\SetupOpenGL.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Setup_GLFW.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Vulkan\SetupVulkan.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Window\MonitorData.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Window\Monitor_GLFW.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Window\WindowProperties.hpp" />
+    <ClInclude Include="src\Platform\GLFW\Window\Window_GLFW.hpp" />
+    <ClInclude Include="src\Platform\Platform.hpp" />
+    <ClInclude Include="src\Utils\File.hpp" />
+    <ClInclude Include="src\Utils\JSON\JsonCommon.hpp" />
+    <ClInclude Include="src\Utils\JSON\JsonFile.hpp" />
+    <ClInclude Include="src\Utils\Random.hpp" />
+    <ClInclude Include="src\Utils\Timer.hpp" />
+    <ClInclude Include="src\pch.hpp" />
+    <ClInclude Include="src\Utils\UUID.hpp" />
+    <ClInclude Include="src\Core\View\View.hpp" />
+    <ClInclude Include="src\Core\View\ViewSystem.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\Assets\TextureLoader.cpp" />
+    <ClCompile Include="src\Core\Engine\Engine.cpp" />
+    <ClCompile Include="src\Core\Logger\Logger.cpp" />
+    <ClCompile Include="src\Core\Scene\Scene.cpp" />
+    <ClCompile Include="src\Core\stb.cpp" />
+    <ClCompile Include="src\Core\Worker\WorkerPool.cpp" />
+    <ClCompile Include="src\Platform\GLFW\OpenGL\SetupOpenGL.cpp" />
+    <ClCompile Include="src\Platform\GLFW\Vulkan\SetupVulkan.cpp" />
+    <ClCompile Include="src\Platform\GLFW\Window\Window_GLFW.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Core\View\View.cpp" />
+    <ClCompile Include="src\Core\View\ViewSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\vendor\glfw.vcxproj">
+      <Project>{9563977C-819A-980D-2A87-7E10169D140F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\imgui.vcxproj">
+      <Project>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\imgui-glfw.vcxproj">
+      <Project>{BD3A30AC-A9F2-71F9-12FA-4A55FED00CEA}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\imgui-opengl.vcxproj">
+      <Project>{12E01A8C-FE42-AA30-A7C8-E2E6930A76B3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\vma.vcxproj">
+      <Project>{49B7880B-B5C0-887C-3E3C-9F7CAA44947C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\glad.vcxproj">
+      <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
